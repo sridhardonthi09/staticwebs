@@ -43,11 +43,86 @@ let currentAlphabetSet = 'A-E';
 
 const learningContent = {
     numbers: {
-        1: { image: 'images/apple.jpg', text: 'One Apple', examples: ['🍎'] },
-        2: { image: 'images/birds.jpg', text: 'Two Birds', examples: ['🐦', '🐦'] },
-        3: { image: 'images/fish.jpg', text: 'Three Fish', examples: ['🐠', '🐠', '🐠'] },
-        4: { image: 'images/flowers.jpg', text: 'Four Flowers', examples: ['🌸', '🌸', '🌸', '🌸'] },
-        5: { image: 'images/stars.jpg', text: 'Five Stars', examples: ['⭐', '⭐', '⭐', '⭐', '⭐'] }
+        1: { 
+            image: 'images/apple.jpg', 
+            text: 'One Apple', 
+            examples: ['🍎'], 
+            color: '#E74C3C',
+            description: 'One is the first counting number!',
+            numValue: 1
+        },
+        2: { 
+            image: 'images/birds.jpg', 
+            text: 'Two Birds', 
+            examples: ['🐦', '🐦'], 
+            color: '#3498DB',
+            description: 'Two means a pair - like your two hands!',
+            numValue: 2
+        },
+        3: { 
+            image: 'images/fish.jpg', 
+            text: 'Three Fish', 
+            examples: ['🐠', '🐠', '🐠'], 
+            color: '#2ECC71',
+            description: 'Three is one more than two!',
+            numValue: 3
+        },
+        4: { 
+            image: 'images/flowers.jpg', 
+            text: 'Four Flowers', 
+            examples: ['🌸', '🌸', '🌸', '🌸'], 
+            color: '#9B59B6',
+            description: 'Four is like a square - 4 sides!',
+            numValue: 4
+        },
+        5: { 
+            image: 'images/stars.jpg', 
+            text: 'Five Stars', 
+            examples: ['⭐', '⭐', '⭐', '⭐', '⭐'], 
+            color: '#F39C12',
+            description: 'Five fingers on one hand!',
+            numValue: 5
+        },
+        6: { 
+            image: 'images/hearts.jpg', 
+            text: 'Six Hearts', 
+            examples: ['💜', '💜', '💜', '💜', '💜', '💜'], 
+            color: '#E91E63',
+            description: 'Six is half a dozen!',
+            numValue: 6
+        },
+        7: { 
+            image: 'images/rainbows.jpg', 
+            text: 'Seven Colors', 
+            examples: ['🌈', '🔴', '🟠', '🟡', '🟢', '🔵', '🟣'], 
+            color: '#FF6B6B',
+            description: 'Seven colors in a rainbow!',
+            numValue: 7
+        },
+        8: { 
+            image: 'images/circles.jpg', 
+            text: 'Eight Circles', 
+            examples: ['🟡', '🟡', '🟡', '🟡', '🟡', '🟡', '🟡', '🟡'], 
+            color: '#4ECDC4',
+            description: 'Eight looks like a snowman!',
+            numValue: 8
+        },
+        9: { 
+            image: 'images/balloons.jpg', 
+            text: 'Nine Balloons', 
+            examples: ['🎈', '🎈', '🎈', '🎈', '🎈', '🎈', '🎈', '🎈', '🎈'], 
+            color: '#45B7D1',
+            description: 'Nine is almost ten!',
+            numValue: 9
+        },
+        10: { 
+            image: 'images/fingers.jpg', 
+            text: 'Ten Fingers', 
+            examples: ['👆', '👆', '👆', '👆', '👆', '👆', '👆', '👆', '👆', '👆'], 
+            color: '#96CEB4',
+            description: 'Ten fingers on both hands!',
+            numValue: 10
+        }
     },
     alphabet: alphabetSets['A-E'],
     shapes: {
@@ -200,8 +275,8 @@ function createLearningCard(key, content) {
     const card = document.createElement('div');
     card.className = 'learning-card';
 
-    // Add special styling for shapes
-    if (currentCategory === 'shapes' && content.color) {
+    // Add special styling for shapes and numbers
+    if ((currentCategory === 'shapes' || currentCategory === 'numbers') && content.color) {
         card.style.borderLeft = `8px solid ${content.color}`;
         card.style.background = `linear-gradient(135deg, ${content.color}20, #ffffff)`;
     }
@@ -210,8 +285,61 @@ function createLearningCard(key, content) {
     const imgContainer = document.createElement('div');
     imgContainer.className = 'image-container';
     
+    // For numbers, create a visual number display
+    if (currentCategory === 'numbers') {
+        const numberVisual = document.createElement('div');
+        numberVisual.className = `number-visual number-${key}`;
+        numberVisual.style.cssText = `
+            width: 120px;
+            height: 120px;
+            margin: 20px auto;
+            background-color: ${content.color};
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4em;
+            color: white;
+            font-weight: bold;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.4);
+            border-radius: 20px;
+            animation: numberPulse 2s ease-in-out infinite;
+            position: relative;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        `;
+        
+        numberVisual.innerHTML = content.numValue;
+        
+        // Add counting dots
+        const dotsContainer = document.createElement('div');
+        dotsContainer.style.cssText = `
+            position: absolute;
+            bottom: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 3px;
+            flex-wrap: wrap;
+            justify-content: center;
+            max-width: 120px;
+        `;
+        
+        for (let i = 0; i < content.numValue; i++) {
+            const dot = document.createElement('div');
+            dot.style.cssText = `
+                width: 8px;
+                height: 8px;
+                background-color: ${content.color};
+                border-radius: 50%;
+                animation: dotAppear 0.3s ease-out ${i * 0.1}s both;
+            `;
+            dotsContainer.appendChild(dot);
+        }
+        
+        numberVisual.appendChild(dotsContainer);
+        imgContainer.appendChild(numberVisual);
+    }
     // For shapes, create a visual shape instead of relying on images
-    if (currentCategory === 'shapes') {
+    else if (currentCategory === 'shapes') {
         const shapeVisual = document.createElement('div');
         shapeVisual.className = `shape-visual shape-${key}`;
         shapeVisual.style.cssText = `
@@ -282,11 +410,11 @@ function createLearningCard(key, content) {
 
     const text = document.createElement('h3');
     text.textContent = content.text;
-    text.style.color = currentCategory === 'shapes' ? content.color : '#333';
+    text.style.color = (currentCategory === 'shapes' || currentCategory === 'numbers') ? content.color : '#333';
 
-    // Add description for shapes
+    // Add description for shapes and numbers
     const description = document.createElement('p');
-    if (currentCategory === 'shapes' && content.description) {
+    if ((currentCategory === 'shapes' || currentCategory === 'numbers') && content.description) {
         description.textContent = content.description;
         description.style.cssText = `
             font-size: 0.9em;
@@ -315,6 +443,19 @@ function createLearningCard(key, content) {
                 shapeVisual.style.transform = 'scale(1.2) rotate(360deg)';
                 setTimeout(() => {
                     shapeVisual.style.transform = 'scale(1) rotate(0deg)';
+                }, 600);
+            }
+        }
+        
+        // Add special number animation
+        if (currentCategory === 'numbers') {
+            const numberVisual = card.querySelector('.number-visual');
+            if (numberVisual) {
+                numberVisual.style.transform = 'scale(1.3)';
+                numberVisual.style.animation = 'numberBounce 0.6s ease-in-out';
+                setTimeout(() => {
+                    numberVisual.style.transform = 'scale(1)';
+                    numberVisual.style.animation = 'numberPulse 2s ease-in-out infinite';
                 }, 600);
             }
         }
