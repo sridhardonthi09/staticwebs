@@ -16,9 +16,18 @@
         </header>
 
         <nav class="learning-options">
-            <button class="category-btn" onclick="selectCategory('numbers')" id="numbers-btn">Numbers 123</button>
-            <button class="category-btn" onclick="selectCategory('alphabet')" id="alphabet-btn">ABC's</button>
-            <button class="category-btn" onclick="selectCategory('shapes')" id="shapes-btn">Shapes ⭕⬛🔺</button>
+            <button class="category-btn" onclick="selectCategory('numbers')" id="numbers-btn">
+                <span class="btn-icon">🔢</span>
+                Numbers 123
+            </button>
+            <button class="category-btn" onclick="selectCategory('alphabet')" id="alphabet-btn">
+                <span class="btn-icon">🔤</span>
+                ABC's
+            </button>
+            <button class="category-btn" onclick="selectCategory('shapes')" id="shapes-btn">
+                <span class="btn-icon">🔺</span>
+                Shapes & Forms
+            </button>
         </nav>
 
         <main id="learning-area">
@@ -36,8 +45,13 @@
                         <p>Learn letters with colorful examples!</p>
                     </div>
                     <div class="feature">
-                        <h3>Shapes</h3>
-                        <p>Learn basic shapes around us!</p>
+                        <h3>Shapes & Forms</h3>
+                        <p>Discover colorful shapes with fun animations!</p>
+                        <div class="preview-shapes">
+                            <span style="color: #FF6B6B;">●</span>
+                            <span style="color: #4ECDC4;">■</span>
+                            <span style="color: #FECA57;">★</span>
+                        </div>
                     </div>
                 </div>
             </div>

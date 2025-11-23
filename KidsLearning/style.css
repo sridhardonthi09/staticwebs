@@ -41,11 +41,33 @@ header {
     color: white;
     cursor: pointer;
     transition: transform 0.2s, background-color 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.category-btn .btn-icon {
+    font-size: 1.5em;
+    animation: iconBounce 2s ease-in-out infinite;
+}
+
+@keyframes iconBounce {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
 }
 
 .category-btn:hover {
     transform: scale(1.05);
     background-color: #1976D2;
+}
+
+.category-btn:hover .btn-icon {
+    animation: iconSpin 0.8s ease-in-out;
+}
+
+@keyframes iconSpin {
+    from { transform: rotate(0deg) scale(1); }
+    to { transform: rotate(360deg) scale(1.3); }
 }
 
 .welcome-screen {
@@ -232,4 +254,133 @@ header {
 
 #next-btn:hover {
     background-color: #388E3C;
+}
+
+/* Shape-specific animations and styles */
+@keyframes shapeFloat {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes shapePulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+@keyframes shapeRotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.shape-visual {
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.shape-visual:hover {
+    transform: scale(1.1) !important;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+}
+
+.shape-circle {
+    animation: shapePulse 4s ease-in-out infinite;
+}
+
+.shape-star {
+    animation: shapeRotate 8s linear infinite;
+}
+
+.shape-triangle {
+    filter: drop-shadow(0 8px 20px rgba(0,0,0,0.15));
+}
+
+.shape-triangle:hover {
+    filter: drop-shadow(0 12px 30px rgba(0,0,0,0.25));
+}
+
+/* Enhanced learning cards for shapes */
+.learning-card {
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.learning-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+    transition: left 0.5s;
+}
+
+.learning-card:hover::before {
+    left: 100%;
+}
+
+.learning-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+}
+
+/* Special effects for shape cards */
+.card-container .learning-card:nth-child(odd) {
+    animation-delay: 0.1s;
+}
+
+.card-container .learning-card:nth-child(even) {
+    animation-delay: 0.2s;
+}
+
+/* Color-coded borders for different shapes */
+.learning-card h3 {
+    font-weight: bold;
+    margin: 10px 0;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+/* Responsive improvements for shapes */
+@media (max-width: 768px) {
+    .shape-visual {
+        width: 100px !important;
+        height: 100px !important;
+        font-size: 2em !important;
+    }
+    
+    .shape-rectangle {
+        width: 120px !important;
+        height: 80px !important;
+    }
+}
+
+/* Welcome screen preview shapes */
+.preview-shapes {
+    margin-top: 15px;
+    font-size: 2.5em;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.preview-shapes span {
+    animation: previewFloat 3s ease-in-out infinite;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.preview-shapes span:nth-child(1) { animation-delay: 0s; }
+.preview-shapes span:nth-child(2) { animation-delay: 0.5s; }
+.preview-shapes span:nth-child(3) { animation-delay: 1s; }
+
+.preview-shapes span:hover {
+    transform: scale(1.3) rotate(15deg);
+}
+
+@keyframes previewFloat {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    33% { transform: translateY(-8px) rotate(5deg); }
+    66% { transform: translateY(-4px) rotate(-3deg); }
 }

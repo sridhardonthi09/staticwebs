@@ -51,11 +51,48 @@ const learningContent = {
     },
     alphabet: alphabetSets['A-E'],
     shapes: {
-        'circle': { image: 'images/circle.jpg', text: 'Circle - Round like the sun', examples: ['⭕'] },
-        'square': { image: 'images/square.jpg', text: 'Square - Four equal sides', examples: ['⬛'] },
-        'triangle': { image: 'images/triangle.jpg', text: 'Triangle - Three sides', examples: ['�'] },
-        'rectangle': { image: 'images/rectangle.jpg', text: 'Rectangle - Like a door', examples: ['▬'] },
-        'star': { image: 'images/star.jpg', text: 'Star - Twinkle in the sky', examples: ['⭐'] }
+        'circle': { 
+            image: 'images/circle.jpg', 
+            text: 'Circle - Round like the sun', 
+            examples: ['🟡', '🔴', '🟢'], 
+            color: '#FF6B6B',
+            description: 'A circle is perfectly round with no corners!'
+        },
+        'square': { 
+            image: 'images/square.jpg', 
+            text: 'Square - Four equal sides', 
+            examples: ['🟪', '🟦', '🟨'], 
+            color: '#4ECDC4',
+            description: 'A square has 4 equal sides and 4 corners!'
+        },
+        'triangle': { 
+            image: 'images/triangle.jpg', 
+            text: 'Triangle - Three sides', 
+            examples: ['🔺', '🔻', '⚠️'], 
+            color: '#45B7D1',
+            description: 'A triangle has 3 sides and 3 corners!'
+        },
+        'rectangle': { 
+            image: 'images/rectangle.jpg', 
+            text: 'Rectangle - Like a door', 
+            examples: ['📱', '📺', '🚪'], 
+            color: '#96CEB4',
+            description: 'A rectangle has 4 sides - 2 long and 2 short!'
+        },
+        'star': { 
+            image: 'images/star.jpg', 
+            text: 'Star - Twinkle in the sky', 
+            examples: ['⭐', '🌟', '✨'], 
+            color: '#FECA57',
+            description: 'A star has 5 points that shine bright!'
+        },
+        'heart': { 
+            image: 'images/heart.jpg', 
+            text: 'Heart - Shape of love', 
+            examples: ['❤️', '💜', '💙'], 
+            color: '#FF9FF3',
+            description: 'A heart shape shows love and kindness!'
+        }
     }
 };
 
@@ -163,33 +200,125 @@ function createLearningCard(key, content) {
     const card = document.createElement('div');
     card.className = 'learning-card';
 
+    // Add special styling for shapes
+    if (currentCategory === 'shapes' && content.color) {
+        card.style.borderLeft = `8px solid ${content.color}`;
+        card.style.background = `linear-gradient(135deg, ${content.color}20, #ffffff)`;
+    }
+
     // Create both image and emoji containers
     const imgContainer = document.createElement('div');
     imgContainer.className = 'image-container';
     
-    // Add real image
-    const img = document.createElement('img');
-    img.src = content.image;
-    img.alt = content.text;
-    imgContainer.appendChild(img);
+    // For shapes, create a visual shape instead of relying on images
+    if (currentCategory === 'shapes') {
+        const shapeVisual = document.createElement('div');
+        shapeVisual.className = `shape-visual shape-${key}`;
+        shapeVisual.style.cssText = `
+            width: 120px;
+            height: 120px;
+            margin: 20px auto;
+            background-color: ${content.color};
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5em;
+            color: white;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            animation: shapeFloat 3s ease-in-out infinite;
+        `;
+        
+        // Apply shape-specific styles
+        switch(key) {
+            case 'circle':
+                shapeVisual.style.borderRadius = '50%';
+                shapeVisual.innerHTML = '●';
+                break;
+            case 'square':
+                shapeVisual.style.borderRadius = '8px';
+                shapeVisual.innerHTML = '■';
+                break;
+            case 'triangle':
+                shapeVisual.style.width = '0';
+                shapeVisual.style.height = '0';
+                shapeVisual.style.borderLeft = '60px solid transparent';
+                shapeVisual.style.borderRight = '60px solid transparent';
+                shapeVisual.style.borderBottom = `100px solid ${content.color}`;
+                shapeVisual.style.backgroundColor = 'transparent';
+                shapeVisual.innerHTML = '';
+                break;
+            case 'rectangle':
+                shapeVisual.style.width = '160px';
+                shapeVisual.style.height = '100px';
+                shapeVisual.style.borderRadius = '8px';
+                shapeVisual.innerHTML = '▬';
+                break;
+            case 'star':
+                shapeVisual.innerHTML = '★';
+                shapeVisual.style.borderRadius = '8px';
+                break;
+            case 'heart':
+                shapeVisual.innerHTML = '♥';
+                shapeVisual.style.borderRadius = '8px';
+                break;
+        }
+        
+        imgContainer.appendChild(shapeVisual);
+    } else {
+        // Add real image for non-shapes
+        const img = document.createElement('img');
+        img.src = content.image;
+        img.alt = content.text;
+        imgContainer.appendChild(img);
+    }
     
-    // Add emoji examples below the image
+    // Add emoji examples below the image/shape
     const emojiContainer = document.createElement('div');
     emojiContainer.className = 'emoji-container';
     emojiContainer.innerHTML = content.examples.join(' ');
     emojiContainer.style.fontSize = '2em';
+    emojiContainer.style.margin = '10px 0';
 
     const text = document.createElement('h3');
     text.textContent = content.text;
+    text.style.color = currentCategory === 'shapes' ? content.color : '#333';
+
+    // Add description for shapes
+    const description = document.createElement('p');
+    if (currentCategory === 'shapes' && content.description) {
+        description.textContent = content.description;
+        description.style.cssText = `
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 8px;
+            line-height: 1.4;
+        `;
+    }
 
     card.appendChild(imgContainer);
     card.appendChild(emojiContainer);
     card.appendChild(text);
+    if (description.textContent) {
+        card.appendChild(description);
+    }
 
     // Add sound and animation effects
     card.onclick = () => {
         playSound('click');
         card.classList.add('card-click');
+        
+        // Add special shape animation
+        if (currentCategory === 'shapes') {
+            const shapeVisual = card.querySelector('.shape-visual');
+            if (shapeVisual) {
+                shapeVisual.style.transform = 'scale(1.2) rotate(360deg)';
+                setTimeout(() => {
+                    shapeVisual.style.transform = 'scale(1) rotate(0deg)';
+                }, 600);
+            }
+        }
+        
         setTimeout(() => card.classList.remove('card-click'), 200);
     };
 
