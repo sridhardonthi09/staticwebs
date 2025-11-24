@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bhagavad Gita - Sacred Wisdom Portal</title>
+    <meta name="description" content="Explore the timeless wisdom of the Bhagavad Gita with Sanskrit verses, English translations, and profound commentary. Your digital spiritual companion.">
+    <meta name="keywords" content="Bhagavad Gita, Krishna, Arjuna, Sanskrit, Spirituality, Hindu Philosophy, Sacred Text, Yoga">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🕉️</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Noto+Sans+Devanagari:wght@300;400;500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-brand">
+                    <span class="om-symbol">🕉️</span>
+                    <h1>Bhagavad Gita</h1>
+                </div>
+                <div class="nav-menu" id="navMenu">
+                    <a href="#home" class="nav-link">Home</a>
+                    <a href="#chapters" class="nav-link">Chapters</a>
+                    <a href="#verses" class="nav-link">Daily Verse</a>
+                    <a href="#teachings" class="nav-link">Teachings</a>
+                    <a href="#commentary" class="nav-link">Commentary</a>
+                    <a href="#about" class="nav-link">About</a>
+                </div>
+                <button class="nav-toggle" id="navToggle">
+                    <span class="hamburger"></span>
+                    <span class="hamburger"></span>
+                    <span class="hamburger"></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-background">
+                <div class="hero-overlay"></div>
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <h1 class="hero-title">
+                            <span class="sanskrit">श्रीमद्भगवद्गीता</span>
+                            <span class="english">The Bhagavad Gita</span>
+                        </h1>
+                        <p class="hero-subtitle">
+                            Discover the eternal wisdom of Lord Krishna's divine counsel to Arjuna
+                        </p>
+                        <p class="hero-description">
+                            A sacred dialogue on dharma, duty, and the path to liberation - 
+                            exploring 700 verses of profound spiritual guidance
+                        </p>
+                        <div class="hero-actions">
+                            <button class="btn btn-primary" onclick="scrollToSection('chapters')">
+                                Explore Chapters
+                            </button>
+                            <button class="btn btn-secondary" onclick="scrollToSection('verses')">
+                                Daily Verse
+                            </button>
+                        </div>
+                    </div>
+                    <div class="hero-image">
+                        <div class="lotus-symbol">🪷</div>
+                        <div class="spiritual-quote">
+                            <p class="sanskrit-quote">कर्मण्येवाधिकारस्ते मा फलेषु कदाचन</p>
+                            <p class="english-quote">"You have the right to perform your actions, but never to the fruits of action"</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Daily Verse Section -->
+        <section id="verses" class="daily-verse">
+            <div class="container">
+                <h2 class="section-title">Daily Verse</h2>
+                <div class="verse-card">
+                    <div class="verse-header">
+                        <span class="verse-number">Chapter 2, Verse 47</span>
+                        <span class="verse-date" id="currentDate"></span>
+                    </div>
+                    <div class="verse-content">
+                        <div class="sanskrit-verse">
+                            <p>कर्मण्येवाधिकारस्ते मा फलेषु कदाचन।</p>
+                            <p>मा कर्मफलहेतुर्भूर्मा ते सङ्गोऽस्त्वकर्मणि॥</p>
+                        </div>
+                        <div class="transliteration">
+                            <p>karmaṇy evādhikāras te mā phaleṣu kadācana</p>
+                            <p>mā karma-phala-hetur bhūr mā te saṅgo 'stv akarmaṇi</p>
+                        </div>
+                        <div class="english-translation">
+                            <p>You have a right to perform your prescribed duty, but you are not entitled to the fruits of action. Never consider yourself the cause of the results of your activities, and never be attached to not doing your duty.</p>
+                        </div>
+                    </div>
+                    <div class="verse-actions">
+                        <button class="btn btn-outline" onclick="shareVerse()">Share</button>
+                        <button class="btn btn-outline" onclick="saveVerse()">Save</button>
+                        <button class="btn btn-outline" onclick="getNewVerse()">New Verse</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Chapters Section -->
+        <section id="chapters" class="chapters">
+            <div class="container">
+                <h2 class="section-title">18 Sacred Chapters</h2>
+                <p class="section-subtitle">Each chapter reveals profound teachings on different aspects of spiritual life</p>
+                
+                <div class="chapters-grid">
+                    <div class="chapter-card" data-chapter="1">
+                        <div class="chapter-number">1</div>
+                        <h3 class="chapter-title">Arjuna Vishada Yoga</h3>
+                        <p class="chapter-subtitle">The Dejection of Arjuna</p>
+                        <p class="chapter-description">Arjuna's moral dilemma on the battlefield of Kurukshetra</p>
+                        <div class="chapter-stats">
+                            <span>47 Verses</span>
+                        </div>
+                    </div>
+
+                    <div class="chapter-card" data-chapter="2">
+                        <div class="chapter-number">2</div>
+                        <h3 class="chapter-title">Sankhya Yoga</h3>
+                        <p class="chapter-subtitle">Transcendental Knowledge</p>
+                        <p class="chapter-description">The immortal soul and the temporary nature of the body</p>
+                        <div class="chapter-stats">
+                            <span>72 Verses</span>
+                        </div>
+                    </div>
+
+                    <div class="chapter-card" data-chapter="3">
+                        <div class="chapter-number">3</div>
+                        <h3 class="chapter-title">Karma Yoga</h3>
+                        <p class="chapter-subtitle">Path of Action</p>
+                        <p class="chapter-description">Performing duty without attachment to results</p>
+                        <div class="chapter-stats">
+                            <span>43 Verses</span>
+                        </div>
+                    </div>
+
+                    <div class="chapter-card" data-chapter="4">
+                        <div class="chapter-number">4</div>
+                        <h3 class="chapter-title">Jnana Yoga</h3>
+                        <p class="chapter-subtitle">Path of Knowledge</p>
+                        <p class="chapter-description">Divine incarnations and the nature of action</p>
+                        <div class="chapter-stats">
+                            <span>42 Verses</span>
+                        </div>
+                    </div>
+
+                    <div class="chapter-card" data-chapter="5">
+                        <div class="chapter-number">5</div>
+                        <h3 class="chapter-title">Karma Sannyasa Yoga</h3>
+                        <p class="chapter-subtitle">Path of Renunciation</p>
+                        <p class="chapter-description">True renunciation and liberation through action</p>
+                        <div class="chapter-stats">
+                            <span>29 Verses</span>
+                        </div>
+                    </div>
+
+                    <div class="chapter-card" data-chapter="6">
+                        <div class="chapter-number">6</div>
+                        <h3 class="chapter-title">Atmasamyama Yoga</h3>
+                        <p class="chapter-subtitle">Path of Meditation</p>
+                        <p class="chapter-description">Self-control and the practice of meditation</p>
+                        <div class="chapter-stats">
+                            <span>47 Verses</span>
+                        </div>
+                    </div>
+
+                    <div class="chapter-card" data-chapter="7">
+                        <div class="chapter-number">7</div>
+                        <h3 class="chapter-title">Paramahamsa Vijnana Yoga</h3>
+                        <p class="chapter-subtitle">Knowledge of the Absolute</p>
+                        <p class="chapter-description">Understanding the supreme divine nature</p>
+                        <div class="chapter-stats">
+                            <span>30 Verses</span>
+                        </div>
+                    </div>
+
+                    <div class="chapter-card" data-chapter="8">
+                        <div class="chapter-number">8</div>
+                        <h3 class="chapter-title">Aksara Brahma Yoga</h3>
+                        <p class="chapter-subtitle">Attaining the Supreme</p>
+                        <p class="chapter-description">The imperishable Brahman and reaching the divine</p>
+                        <div class="chapter-stats">
+                            <span>28 Verses</span>
+                        </div>
+                    </div>
+
+                    <div class="chapter-card" data-chapter="9">
+                        <div class="chapter-number">9</div>
+                        <h3 class="chapter-title">Raja Vidya Yoga</h3>
+                        <p class="chapter-subtitle">The Most Confidential Knowledge</p>
+                        <p class="chapter-description">Royal knowledge and royal secret of devotion</p>
+                        <div class="chapter-stats">
+                            <span>34 Verses</span>
+                        </div>
+                    </div>
+
+                    <div class="chapter-card" data-chapter="10">
+                        <div class="chapter-number">10</div>
+                        <h3 class="chapter-title">Vibhuti Vistara Yoga</h3>
+                        <p class="chapter-subtitle">The Opulence of the Absolute</p>
+                        <p class="chapter-description">Divine manifestations and cosmic powers</p>
+                        <div class="chapter-stats">
+                            <span>42 Verses</span>
+                        </div>
+                    </div>
+
+                    <div class="chapter-card" data-chapter="11">
+                        <div class="chapter-number">11</div>
+                        <h3 class="chapter-title">Visvarupa Darsana Yoga</h3>
+                        <p class="chapter-subtitle">The Universal Form</p>
+                        <p class="chapter-description">Arjuna witnesses Krishna's cosmic form</p>
+                        <div class="chapter-stats">
+                            <span>55 Verses</span>
+                        </div>
+                    </div>
+
+                    <div class="chapter-card" data-chapter="12">
+                        <div class="chapter-number">12</div>
+                        <h3 class="chapter-title">Bhakti Yoga</h3>
+                        <p class="chapter-subtitle">The Path of Devotion</p>
+                        <p class="chapter-description">Devotional service and love for the divine</p>
+                        <div class="chapter-stats">
+                            <span>20 Verses</span>
+                        </div>
+                    </div>
+
+                    <div class="chapter-card" data-chapter="13">
+                        <div class="chapter-number">13</div>
+                        <h3 class="chapter-title">Ksetra Ksetrajna Vibhaga Yoga</h3>
+                        <p class="chapter-subtitle">The Field and the Knower</p>
+                        <p class="chapter-description">Understanding the body, soul, and consciousness</p>
+                        <div class="chapter-stats">
+                            <span>35 Verses</span>
+                        </div>
+                    </div>
+
+                    <div class="chapter-card" data-chapter="14">
+                        <div class="chapter-number">14</div>
+                        <h3 class="chapter-title">Gunatraya Vibhaga Yoga</h3>
+                        <p class="chapter-subtitle">The Three Modes of Nature</p>
+                        <p class="chapter-description">Sattva, rajas, and tamas - the material qualities</p>
+                        <div class="chapter-stats">
+                            <span>27 Verses</span>
+                        </div>
+                    </div>
+
+                    <div class="chapter-card" data-chapter="15">
+                        <div class="chapter-number">15</div>
+                        <h3 class="chapter-title">Purushottama Prapti Yoga</h3>
+                        <p class="chapter-subtitle">The Supreme Divine Personality</p>
+                        <p class="chapter-description">The cosmic tree and the supreme person</p>
+                        <div class="chapter-stats">
+                            <span>20 Verses</span>
+                        </div>
+                    </div>
+
+                    <div class="chapter-card" data-chapter="16">
+                        <div class="chapter-number">16</div>
+                        <h3 class="chapter-title">Daivasura Sampad Vibhaga Yoga</h3>
+                        <p class="chapter-subtitle">Divine and Demoniac Natures</p>
+                        <p class="chapter-description">Distinguishing divine and demoniac qualities</p>
+                        <div class="chapter-stats">
+                            <span>24 Verses</span>
+                        </div>
+                    </div>
+
+                    <div class="chapter-card" data-chapter="17">
+                        <div class="chapter-number">17</div>
+                        <h3 class="chapter-title">Sraddhatraya Vibhaga Yoga</h3>
+                        <p class="chapter-subtitle">The Divisions of Faith</p>
+                        <p class="chapter-description">Three types of faith and their manifestations</p>
+                        <div class="chapter-stats">
+                            <span>28 Verses</span>
+                        </div>
+                    </div>
+
+                    <div class="chapter-card" data-chapter="18">
+                        <div class="chapter-number">18</div>
+                        <h3 class="chapter-title">Moksha Sannyasa Yoga</h3>
+                        <p class="chapter-subtitle">Conclusion - Liberation and Surrender</p>
+                        <p class="chapter-description">Final teachings on liberation and surrender</p>
+                        <div class="chapter-stats">
+                            <span>78 Verses</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Key Teachings Section -->
+        <section id="teachings" class="teachings">
+            <div class="container">
+                <h2 class="section-title">Eternal Teachings</h2>
+                <p class="section-subtitle">Core principles that illuminate the path to spiritual awakening</p>
+                
+                <div class="teachings-grid">
+                    <div class="teaching-card">
+                        <div class="teaching-icon">⚖️</div>
+                        <h3>Dharma</h3>
+                        <p>Righteous duty and moral order - understanding our purpose and responsibilities in life</p>
+                        <div class="teaching-quote">
+                            <span>"Better is one's own dharma, though imperfectly performed, than the dharma of another well performed"</span>
+                        </div>
+                    </div>
+
+                    <div class="teaching-card">
+                        <div class="teaching-icon">🎯</div>
+                        <h3>Karma Yoga</h3>
+                        <p>The path of selfless action - performing duties without attachment to results</p>
+                        <div class="teaching-quote">
+                            <span>"You have the right to perform your actions, but never to the fruits of action"</span>
+                        </div>
+                    </div>
+
+                    <div class="teaching-card">
+                        <div class="teaching-icon">🧘</div>
+                        <h3>Yoga & Meditation</h3>
+                        <p>Union with the divine through disciplined practice and self-realization</p>
+                        <div class="teaching-quote">
+                            <span>"Yoga is the journey of the self, through the self, to the self"</span>
+                        </div>
+                    </div>
+
+                    <div class="teaching-card">
+                        <div class="teaching-icon">💖</div>
+                        <h3>Bhakti</h3>
+                        <p>Pure devotional love and surrender to the supreme divine consciousness</p>
+                        <div class="teaching-quote">
+                            <span>"Abandon all varieties of dharma and surrender unto Me alone"</span>
+                        </div>
+                    </div>
+
+                    <div class="teaching-card">
+                        <div class="teaching-icon">📿</div>
+                        <h3>Self-Realization</h3>
+                        <p>Understanding the eternal nature of the soul beyond the temporary body</p>
+                        <div class="teaching-quote">
+                            <span>"The soul is neither born nor does it die"</span>
+                        </div>
+                    </div>
+
+                    <div class="teaching-card">
+                        <div class="teaching-icon">🌟</div>
+                        <h3>Divine Grace</h3>
+                        <p>Liberation through the mercy and guidance of the supreme divine</p>
+                        <div class="teaching-quote">
+                            <span>"To those who are constantly devoted and worship Me with love, I give the understanding by which they can come to Me"</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Commentary Section -->
+        <section id="commentary" class="commentary">
+            <div class="container">
+                <h2 class="section-title">Scholarly Commentary</h2>
+                <p class="section-subtitle">Insights from revered teachers and spiritual masters</p>
+                
+                <div class="commentary-tabs">
+                    <button class="tab-btn active" data-tab="classical">Classical</button>
+                    <button class="tab-btn" data-tab="modern">Modern</button>
+                    <button class="tab-btn" data-tab="practical">Practical</button>
+                </div>
+
+                <div class="commentary-content">
+                    <div class="tab-content active" id="classical">
+                        <div class="commentary-grid">
+                            <div class="commentary-card">
+                                <h4>Adi Shankaracharya</h4>
+                                <p>"The Bhagavad Gita teaches the path of knowledge (jnana) leading to the realization of the non-dual Brahman. Krishna's teaching reveals that the individual self (Atman) and the universal Self (Brahman) are one."</p>
+                                <span class="commentary-period">8th Century CE</span>
+                            </div>
+
+                            <div class="commentary-card">
+                                <h4>Ramanuja</h4>
+                                <p>"The Gita emphasizes devotional surrender (prapatti) to the Supreme Person. Through loving devotion and complete surrender, one attains liberation and eternal service to the Divine."</p>
+                                <span class="commentary-period">11th Century CE</span>
+                            </div>
+
+                            <div class="commentary-card">
+                                <h4>Madhvacharya</h4>
+                                <p>"Krishna is the Supreme God, distinct from individual souls. The Gita teaches the path of devotion while maintaining the eternal distinction between God, souls, and matter."</p>
+                                <span class="commentary-period">13th Century CE</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-content" id="modern">
+                        <div class="commentary-grid">
+                            <div class="commentary-card">
+                                <h4>Swami Vivekananda</h4>
+                                <p>"The Gita is a Gospel of Action. It teaches that work done without attachment, performed as worship, leads to the highest spiritual realization. Every action becomes a prayer."</p>
+                                <span class="commentary-period">19th Century</span>
+                            </div>
+
+                            <div class="commentary-card">
+                                <h4>Mahatma Gandhi</h4>
+                                <p>"The Gita is my spiritual mother. It teaches ahimsa (non-violence), truth, and selfless service. The battlefield represents the struggle between good and evil within ourselves."</p>
+                                <span class="commentary-period">20th Century</span>
+                            </div>
+
+                            <div class="commentary-card">
+                                <h4>Paramahansa Yogananda</h4>
+                                <p>"The Gita is a scripture of yoga - the divine union of soul with Spirit. Through meditation and self-realization techniques, one can directly experience the truths Krishna taught."</p>
+                                <span class="commentary-period">20th Century</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-content" id="practical">
+                        <div class="commentary-grid">
+                            <div class="commentary-card">
+                                <h4>Daily Application</h4>
+                                <p>"Apply the Gita's wisdom in everyday decisions. See work as worship, maintain equanimity in success and failure, and practice detached engagement in all activities."</p>
+                                <span class="commentary-period">Modern Practice</span>
+                            </div>
+
+                            <div class="commentary-card">
+                                <h4>Stress Management</h4>
+                                <p>"The Gita's teaching on detachment helps manage stress and anxiety. Focus on effort rather than outcomes, accept what cannot be changed, and maintain inner peace."</p>
+                                <span class="commentary-period">Practical Wisdom</span>
+                            </div>
+
+                            <div class="commentary-card">
+                                <h4>Leadership Principles</h4>
+                                <p>"Krishna's guidance to Arjuna offers timeless leadership lessons: make decisions based on dharma, remain calm under pressure, and serve the greater good."</p>
+                                <span class="commentary-period">Modern Leadership</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about">
+            <div class="container">
+                <h2 class="section-title">About the Bhagavad Gita</h2>
+                
+                <div class="about-content">
+                    <div class="about-text">
+                        <h3>The Sacred Dialogue</h3>
+                        <p>The Bhagavad Gita, often referred to as the Gita, is a 700-verse Hindu scripture that is part of the epic Mahabharata. It consists of a dialogue between Prince Arjuna and Lord Krishna, who serves as his charioteer on the battlefield of Kurukshetra.</p>
+                        
+                        <h3>Timeless Wisdom</h3>
+                        <p>Composed around the 5th century BCE, this sacred text addresses fundamental questions about life, duty, morality, and the nature of reality. Its teachings transcend religious boundaries and offer practical wisdom for navigating life's challenges.</p>
+                        
+                        <h3>Universal Appeal</h3>
+                        <p>The Gita's message resonates across cultures and centuries. It has been studied by philosophers, scientists, and spiritual seekers worldwide, including figures like Albert Einstein, Carl Jung, and Ralph Waldo Emerson.</p>
+                    </div>
+                    
+                    <div class="about-stats">
+                        <div class="stat-card">
+                            <div class="stat-number">18</div>
+                            <div class="stat-label">Chapters</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">700</div>
+                            <div class="stat-label">Verses</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">2500+</div>
+                            <div class="stat-label">Years Old</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">∞</div>
+                            <div class="stat-label">Wisdom</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>🕉️ Sacred Wisdom</h3>
+                    <p>Preserving and sharing the eternal wisdom of the Bhagavad Gita for spiritual seekers worldwide.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Share on Facebook">📘</a>
+                        <a href="#" aria-label="Share on Twitter">🐦</a>
+                        <a href="#" aria-label="Share on Instagram">📷</a>
+                        <a href="#" aria-label="YouTube Channel">📺</a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Study Resources</h4>
+                    <ul>
+                        <li><a href="#chapters">All Chapters</a></li>
+                        <li><a href="#verses">Daily Verses</a></li>
+                        <li><a href="#teachings">Key Teachings</a></li>
+                        <li><a href="#commentary">Commentary</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Spiritual Practice</h4>
+                    <ul>
+                        <li><a href="#meditation">Meditation Guide</a></li>
+                        <li><a href="#chanting">Sanskrit Pronunciation</a></li>
+                        <li><a href="#reflection">Daily Reflection</a></li>
+                        <li><a href="#community">Study Groups</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Sacred Quote</h4>
+                    <blockquote class="footer-quote">
+                        <p class="sanskrit">"योगस्थ: कुरु कर्माणि"</p>
+                        <p>"Established in yoga, perform action"</p>
+                        <cite>- Bhagavad Gita 2.48</cite>
+                    </blockquote>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Bhagavad Gita Portal. Created with devotion for spiritual seekers.</p>
+                <p>🙏 May this sacred wisdom guide all beings toward peace and liberation 🙏</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
