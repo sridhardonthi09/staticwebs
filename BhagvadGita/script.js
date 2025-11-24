@@ -625,11 +625,25 @@ function scrollToSection(sectionId) {
 
 // ===== DAILY VERSE FUNCTIONALITY =====
 function loadDailyVerse() {
+    // Only load daily verse on the home page (index.html)
+    const isHomePage = window.location.pathname.endsWith('index.html') || 
+                      window.location.pathname === '/' || 
+                      window.location.pathname.endsWith('/');
+    
+    if (!isHomePage) return;
+    
     const currentVerse = verses[currentVerseIndex];
     updateVerseDisplay(currentVerse);
 }
 
 function updateVerseDisplay(verse) {
+    // Only update verse display on home page
+    const isHomePage = window.location.pathname.endsWith('index.html') || 
+                      window.location.pathname === '/' || 
+                      window.location.pathname.endsWith('/');
+    
+    if (!isHomePage) return;
+    
     const verseCard = document.querySelector('.verse-card');
     if (!verseCard) return;
     
@@ -659,22 +673,38 @@ function updateVerseDisplay(verse) {
 }
 
 function getNewVerse() {
+    // Only allow new verse functionality on home page
+    const isHomePage = window.location.pathname.endsWith('index.html') || 
+                      window.location.pathname === '/' || 
+                      window.location.pathname.endsWith('/');
+    
+    if (!isHomePage) return;
+    
     currentVerseIndex = (currentVerseIndex + 1) % verses.length;
     const currentVerse = verses[currentVerseIndex];
     updateVerseDisplay(currentVerse);
     
     // Add animation
     const verseCard = document.querySelector('.verse-card');
-    verseCard.style.opacity = '0.5';
-    verseCard.style.transform = 'scale(0.98)';
-    
-    setTimeout(() => {
-        verseCard.style.opacity = '1';
-        verseCard.style.transform = 'scale(1)';
-    }, 200);
+    if (verseCard) {
+        verseCard.style.opacity = '0.5';
+        verseCard.style.transform = 'scale(0.98)';
+        
+        setTimeout(() => {
+            verseCard.style.opacity = '1';
+            verseCard.style.transform = 'scale(1)';
+        }, 200);
+    }
 }
 
 function shareVerse() {
+    // Only allow share verse functionality on home page
+    const isHomePage = window.location.pathname.endsWith('index.html') || 
+                      window.location.pathname === '/' || 
+                      window.location.pathname.endsWith('/');
+    
+    if (!isHomePage) return;
+    
     const currentVerse = verses[currentVerseIndex];
     const shareText = `${currentVerse.sanskrit.join('\n')}\n\n"${currentVerse.translation}"\n\n- Bhagavad Gita ${currentVerse.chapter}.${currentVerse.verse}`;
     
@@ -692,6 +722,13 @@ function shareVerse() {
 }
 
 function saveVerse() {
+    // Only allow save verse functionality on home page
+    const isHomePage = window.location.pathname.endsWith('index.html') || 
+                      window.location.pathname === '/' || 
+                      window.location.pathname.endsWith('/');
+    
+    if (!isHomePage) return;
+    
     const currentVerse = verses[currentVerseIndex];
     const verseId = `${currentVerse.chapter}-${currentVerse.verse}`;
     
