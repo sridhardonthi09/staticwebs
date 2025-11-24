@@ -275,8 +275,8 @@ function createLearningCard(key, content) {
     const card = document.createElement('div');
     card.className = 'learning-card';
 
-    // Add special styling for shapes and numbers
-    if ((currentCategory === 'shapes' || currentCategory === 'numbers') && content.color) {
+    // Add special styling for shapes, numbers, and alphabet
+    if ((currentCategory === 'shapes' || currentCategory === 'numbers' || currentCategory === 'alphabet') && content.color) {
         card.style.borderLeft = `8px solid ${content.color}`;
         card.style.background = `linear-gradient(135deg, ${content.color}20, #ffffff)`;
     }
@@ -337,6 +337,60 @@ function createLearningCard(key, content) {
         
         numberVisual.appendChild(dotsContainer);
         imgContainer.appendChild(numberVisual);
+    }
+    // For alphabet, create a visual letter display
+    else if (currentCategory === 'alphabet') {
+        const letterVisual = document.createElement('div');
+        letterVisual.className = `letter-visual letter-${key}`;
+        letterVisual.style.cssText = `
+            width: 120px;
+            height: 120px;
+            margin: 20px auto;
+            background-color: ${content.color};
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4em;
+            color: white;
+            font-weight: bold;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.4);
+            border-radius: 20px;
+            animation: numberPulse 2s ease-in-out infinite;
+            position: relative;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        `;
+        
+        letterVisual.innerHTML = key.toUpperCase();
+        
+        // Add word example like counting dots for numbers
+        const wordContainer = document.createElement('div');
+        wordContainer.style.cssText = `
+            position: absolute;
+            bottom: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 3px;
+            flex-wrap: wrap;
+            justify-content: center;
+            max-width: 120px;
+        `;
+        
+        const wordBadge = document.createElement('div');
+        wordBadge.style.cssText = `
+            background-color: ${content.color};
+            color: white;
+            padding: 4px 8px;
+            border-radius: 8px;
+            font-size: 0.7rem;
+            font-weight: bold;
+            animation: dotAppear 0.3s ease-out both;
+        `;
+        wordBadge.textContent = content.wordExample || key.toUpperCase();
+        wordContainer.appendChild(wordBadge);
+        
+        letterVisual.appendChild(wordContainer);
+        imgContainer.appendChild(letterVisual);
     }
     // For shapes, create a visual shape instead of relying on images
     else if (currentCategory === 'shapes') {
@@ -410,11 +464,11 @@ function createLearningCard(key, content) {
 
     const text = document.createElement('h3');
     text.textContent = content.text;
-    text.style.color = (currentCategory === 'shapes' || currentCategory === 'numbers') ? content.color : '#333';
+    text.style.color = (currentCategory === 'shapes' || currentCategory === 'numbers' || currentCategory === 'alphabet') ? content.color : '#333';
 
-    // Add description for shapes and numbers
+    // Add description for shapes, numbers, and alphabet
     const description = document.createElement('p');
-    if ((currentCategory === 'shapes' || currentCategory === 'numbers') && content.description) {
+    if ((currentCategory === 'shapes' || currentCategory === 'numbers' || currentCategory === 'alphabet') && content.description) {
         description.textContent = content.description;
         description.style.cssText = `
             font-size: 0.9em;
@@ -456,6 +510,19 @@ function createLearningCard(key, content) {
                 setTimeout(() => {
                     numberVisual.style.transform = 'scale(1)';
                     numberVisual.style.animation = 'numberPulse 2s ease-in-out infinite';
+                }, 600);
+            }
+        }
+        
+        // Add special alphabet animation
+        if (currentCategory === 'alphabet') {
+            const letterVisual = card.querySelector('.letter-visual');
+            if (letterVisual) {
+                letterVisual.style.transform = 'scale(1.3)';
+                letterVisual.style.animation = 'numberBounce 0.6s ease-in-out';
+                setTimeout(() => {
+                    letterVisual.style.transform = 'scale(1)';
+                    letterVisual.style.animation = 'numberPulse 2s ease-in-out infinite';
                 }, 600);
             }
         }

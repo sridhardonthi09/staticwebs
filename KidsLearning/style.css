@@ -300,6 +300,17 @@ header {
     animation: numberBounce 0.6s ease-in-out !important;
 }
 
+/* Letter visual styling - using number animations */
+.letter-visual {
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.letter-visual:hover {
+    transform: scale(1.1) !important;
+    animation: numberBounce 0.6s ease-in-out !important;
+}
+
 .shape-visual {
     transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
@@ -354,8 +365,13 @@ header {
     box-shadow: 0 15px 35px rgba(0,0,0,0.15);
 }
 
-/* Enhanced hover for numbers and shapes */
+/* Enhanced hover for numbers, shapes, and alphabet */
 .learning-card:hover .number-visual {
+    transform: scale(1.15) !important;
+    animation: numberBounce 0.6s ease-in-out !important;
+}
+
+.learning-card:hover .letter-visual {
     transform: scale(1.15) !important;
     animation: numberBounce 0.6s ease-in-out !important;
 }
@@ -400,6 +416,12 @@ header {
         font-size: 3em !important;
     }
     
+    .letter-visual {
+        width: 100px !important;
+        height: 100px !important;
+        font-size: 3.5em !important;
+    }
+    
     .learning-card {
         padding: 15px;
         margin: 10px 0;
@@ -423,19 +445,28 @@ header {
     gap: 10px;
 }
 
-.preview-shapes span, .preview-numbers span {
+.preview-letters {
+    margin-top: 15px;
+    font-size: 2.2em;
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    font-weight: bold;
+}
+
+.preview-shapes span, .preview-numbers span, .preview-letters span {
     animation: previewFloat 3s ease-in-out infinite;
     cursor: pointer;
     transition: transform 0.3s ease;
 }
 
-.preview-shapes span:nth-child(1), .preview-numbers span:nth-child(1) { animation-delay: 0s; }
-.preview-shapes span:nth-child(2), .preview-numbers span:nth-child(2) { animation-delay: 0.5s; }
-.preview-shapes span:nth-child(3), .preview-numbers span:nth-child(3) { animation-delay: 1s; }
-.preview-numbers span:nth-child(4) { animation-delay: 1.5s; }
-.preview-numbers span:nth-child(5) { animation-delay: 2s; }
+.preview-shapes span:nth-child(1), .preview-numbers span:nth-child(1), .preview-letters span:nth-child(1) { animation-delay: 0s; }
+.preview-shapes span:nth-child(2), .preview-numbers span:nth-child(2), .preview-letters span:nth-child(2) { animation-delay: 0.5s; }
+.preview-shapes span:nth-child(3), .preview-numbers span:nth-child(3), .preview-letters span:nth-child(3) { animation-delay: 1s; }
+.preview-numbers span:nth-child(4), .preview-letters span:nth-child(4) { animation-delay: 1.5s; }
+.preview-numbers span:nth-child(5), .preview-letters span:nth-child(5) { animation-delay: 2s; }
 
-.preview-shapes span:hover, .preview-numbers span:hover {
+.preview-shapes span:hover, .preview-numbers span:hover, .preview-letters span:hover {
     transform: scale(1.3) rotate(15deg);
 }
 
