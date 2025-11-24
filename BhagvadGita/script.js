@@ -716,78 +716,71 @@ function setupChapterCards() {
     chapterCards.forEach(card => {
         card.addEventListener('click', function() {
             const chapterNumber = parseInt(this.dataset.chapter);
-            openChapterModal(chapterNumber);
+            navigateToChapter(chapterNumber);
         });
+        
+        // Add cursor pointer style
+        card.style.cursor = 'pointer';
     });
 }
 
-function openChapterModal(chapterNumber) {
-    currentChapter = chapterNumber;
-    const chapterData = chaptersData[chapterNumber];
+function navigateToChapter(chapterNumber) {
+    // Map of available chapter pages
+    const availableChapters = {
+        1: 'chapter1.html',
+        12: 'chapter12.html',
+        15: 'chapter15.html'
+    };
     
-    // Create modal dynamically
-    const modal = createModal('chapter-modal', `
-        <div class="modal-header">
-            <h2>Chapter ${chapterNumber}: ${chapterData.title}</h2>
-            <button class="modal-close">&times;</button>
-        </div>
-        <div class="modal-body">
-            <h3>${chapterData.subtitle}</h3>
-            <p class="chapter-stats">${chapterData.verses} Verses</p>
-            <div class="chapter-verses-list">
-                <p>Loading verses...</p>
-            </div>
-        </div>
-    `);
-    
-    document.body.appendChild(modal);
-    modal.classList.add('active');
-    
-    // Load verses for this chapter
-    loadChapterVerses(chapterNumber);
+    if (availableChapters[chapterNumber]) {
+        window.location.href = availableChapters[chapterNumber];
+    } else {
+        // For chapters that don't have dedicated pages yet, show a message
+        showChapterComingSoon(chapterNumber);
+    }
 }
 
-function loadChapterVerses(chapterNumber) {
-    // Filter verses for this chapter
-    const chapterVerses = verses.filter(verse => verse.chapter === chapterNumber);
-    const versesList = document.querySelector('.chapter-verses-list');
+function showChapterComingSoon(chapterNumber) {
+    const chapterData = chaptersData[chapterNumber];
     
-    if (chapterVerses.length > 0) {
-        versesList.innerHTML = chapterVerses.map(verse => {
-            let wordMeaningHtml = '';
-            if (verse.wordMeaning) {
-                wordMeaningHtml = `
-                    <div class="word-meanings">
-                        <h4>Word-by-Word Meaning:</h4>
-                        <div class="word-meaning-grid">
-                            ${Object.entries(verse.wordMeaning).map(([sanskrit, meaning]) => `
-                                <div class="word-meaning-item">
-                                    <span class="sanskrit-word">${sanskrit}</span>
-                                    <span class="word-arrow">→</span>
-                                    <span class="english-meaning">${meaning}</span>
-                                </div>
-                            `).join('')}
-                        </div>
-                    </div>
-                `;
-            }
-            
-            return `
-                <div class="chapter-verse-item">
-                    <div class="verse-header">
-                        <span class="verse-number">Verse ${verse.verse}</span>
-                        <span class="verse-theme">${verse.theme}</span>
-                    </div>
-                    <div class="verse-sanskrit">${verse.sanskrit.join('<br>')}</div>
-                    ${verse.transliteration ? `<div class="verse-transliteration">${verse.transliteration.join('<br>')}</div>` : ''}
-                    ${wordMeaningHtml}
-                    <div class="verse-translation"><strong>Translation:</strong> ${verse.translation}</div>
-                </div>
-            `;
-        }).join('');
-    } else {
-        versesList.innerHTML = '<p>Verses for this chapter will be available soon.</p>';
-    }
+    // Create a simple notification
+    const notification = document.createElement('div');
+    notification.style.cssText = `
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: white;
+        padding: 2rem;
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        z-index: 10000;
+        text-align: center;
+        max-width: 400px;
+        border: 2px solid var(--primary-orange);
+    `;
+    
+    notification.innerHTML = `
+        <h3 style="color: var(--deep-saffron); margin-bottom: 1rem;">
+            Chapter ${chapterNumber}: ${chapterData ? chapterData.title : 'Chapter'}
+        </h3>
+        <p style="margin-bottom: 1.5rem; color: var(--text-primary);">
+            This chapter page is coming soon! 📖
+        </p>
+        <button onclick="this.parentElement.remove()" 
+                style="background: var(--primary-orange); color: white; border: none; padding: 0.5rem 1.5rem; border-radius: 6px; cursor: pointer;">
+            Close
+        </button>
+    `;
+    
+    document.body.appendChild(notification);
+    
+    // Auto-remove after 3 seconds
+    setTimeout(() => {
+        if (notification.parentElement) {
+            notification.remove();
+        }
+    }, 3000);
 }
 
 // ===== COMMENTARY TABS =====

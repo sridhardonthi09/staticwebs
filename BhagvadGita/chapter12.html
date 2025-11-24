@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 12 - Bhakti Yoga | Bhagavad Gita</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&family=Noto+Sans+Devanagari:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>🕉️</text></svg>">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-brand">
+                    <span class="om-symbol">🕉️</span>
+                    <h1>Bhagavad Gita</h1>
+                </div>
+                <div class="nav-menu" id="navMenu">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="index.html#chapters" class="nav-link">Chapters</a>
+                    <a href="index.html#verses" class="nav-link">Daily Verse</a>
+                    <a href="index.html#teachings" class="nav-link">Teachings</a>
+                    <a href="index.html#commentary" class="nav-link">Commentary</a>
+                    <a href="index.html#about" class="nav-link">About</a>
+                </div>
+                <button class="nav-toggle" id="navToggle">
+                    <span class="hamburger"></span>
+                    <span class="hamburger"></span>
+                    <span class="hamburger"></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Chapter Content -->
+    <main class="chapter-main" style="margin-top: 80px;">
+        <div class="container">
+            <!-- Chapter Header -->
+            <div class="chapter-header">
+                <div class="chapter-hero">
+                    <div class="chapter-title-section">
+                        <div class="chapter-info">
+                            <h1 class="chapter-title">भक्ति योग</h1>
+                            <h2 class="chapter-title-english">Bhakti Yoga</h2>
+                            <p class="chapter-subtitle">The Path of Devotion</p>
+                            <p class="chapter-description">This chapter reveals the supreme path of devotional service (bhakti) to the Divine. Krishna explains the qualities of His dear devotees and the various levels of spiritual practice for those who wish to approach Him through love and devotion.</p>
+                            <div class="chapter-stats">
+                                <div class="stat-item">
+                                    <span class="stat-number">20</span>
+                                    <span class="stat-label">Verses</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-number">🌺</span>
+                                    <span class="stat-label">Divine Love</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-number">🙏</span>
+                                    <span class="stat-label">Devotion</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="chapter-quote">
+                        <div class="quote-text">"मय्यावेश्य मनो ये मां नित्ययुक्ता उपासते"</div>
+                        <div class="quote-translation">"Those who fix their minds on Me and worship Me with unwavering faith"</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chapter Navigation -->
+            <div class="chapter-nav">
+                <a href="chapter11.html" class="nav-btn prev-chapter">
+                    <span class="nav-icon">←</span>
+                    <div class="nav-content">
+                        <span class="nav-label">Previous</span>
+                        <span class="nav-title">Chapter 11</span>
+                    </div>
+                </a>
+                <div class="chapter-controls">
+                    <button class="control-btn" id="playAudio" title="Play Chapter Audio">
+                        <span>🔊</span>
+                    </button>
+                    <button class="control-btn" id="bookmarkChapter" title="Bookmark Chapter">
+                        <span>📖</span>
+                    </button>
+                    <button class="control-btn" id="shareChapter" title="Share Chapter">
+                        <span>📤</span>
+                    </button>
+                    <button class="control-btn" id="printChapter" title="Print Chapter">
+                        <span>🖨️</span>
+                    </button>
+                </div>
+                <a href="chapter13.html" class="nav-btn next-chapter">
+                    <div class="nav-content">
+                        <span class="nav-label">Next</span>
+                        <span class="nav-title">Chapter 13</span>
+                    </div>
+                    <span class="nav-icon">→</span>
+                </a>
+            </div>
+
+            <!-- Verses Container -->
+            <div class="verses-container">
+                <!-- Verse 1 -->
+                <div class="verse-card" data-verse="1">
+                    <div class="verse-header">
+                        <div class="verse-meta">
+                            <span class="verse-number">Verse 12.1</span>
+                            <span class="verse-theme">Arjuna's Question</span>
+                        </div>
+                        <div class="verse-actions">
+                            <button class="action-btn" onclick="playVerse(12, 1)" title="Play Verse">
+                                <span>▶️</span>
+                            </button>
+                            <button class="action-btn" onclick="saveVerse(12, 1)" title="Save Verse">
+                                <span>💾</span>
+                            </button>
+                            <button class="action-btn" onclick="copyVerse(12, 1)" title="Copy Verse">
+                                <span>📋</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="verse-content">
+                        <div class="verse-section sanskrit-section">
+                            <h4 class="section-title">Sanskrit</h4>
+                            <div class="sanskrit">
+                                एवं सततयुक्ता ये भक्तास्त्वां पर्युपासते।<br>
+                                ये चाप्यक्षरमव्यक्तं तेषां के योगवित्तमा:॥
+                            </div>
+                        </div>
+                        <div class="verse-section transliteration-section">
+                            <h4 class="section-title">Transliteration</h4>
+                            <div class="transliteration">
+                                evaṁ satata-yuktā ye bhaktās tvāṁ paryupāsate<br>
+                                ye cāpy akṣaram avyaktaṁ teṣāṁ ke yoga-vittamāḥ
+                            </div>
+                        </div>
+                        <div class="verse-section translation-section">
+                            <h4 class="section-title">Translation</h4>
+                            <div class="translation">
+                                Those who are constantly devoted and worship You with love, and those who worship the imperishable, unmanifested Absolute—which of these are more perfect in yoga?
+                            </div>
+                        </div>
+                        <div class="word-meanings">
+                            <div class="meanings-header">
+                                <h4>Word-by-Word Meanings</h4>
+                                <button class="toggle-meanings" onclick="toggleMeanings(this)">Show Details</button>
+                            </div>
+                            <div class="meanings-content collapsed">
+                                <div class="word-grid">
+                                    <div class="word-pair">
+                                        <span class="sanskrit-word">एवम्</span>
+                                        <span class="meaning">evam = thus</span>
+                                    </div>
+                                    <div class="word-pair">
+                                        <span class="sanskrit-word">सततयुक्ता:</span>
+                                        <span class="meaning">satata-yuktāḥ = constantly engaged</span>
+                                    </div>
+                                    <div class="word-pair">
+                                        <span class="sanskrit-word">ये</span>
+                                        <span class="meaning">ye = those who</span>
+                                    </div>
+                                    <div class="word-pair">
+                                        <span class="sanskrit-word">भक्ता:</span>
+                                        <span class="meaning">bhaktāḥ = devotees</span>
+                                    </div>
+                                    <div class="word-pair">
+                                        <span class="sanskrit-word">त्वाम्</span>
+                                        <span class="meaning">tvām = You</span>
+                                    </div>
+                                    <div class="word-pair">
+                                        <span class="sanskrit-word">पर्युपासते</span>
+                                        <span class="meaning">paryupāsate = worship</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Verse 2 -->
+                <div class="verse-card">
+                    <div class="verse-header">
+                        <span class="verse-number">Verse 12.2</span>
+                        <span class="verse-theme">Krishna's Response</span>
+                    </div>
+                    <div class="verse-content">
+                        <div class="sanskrit">
+                            मय्यावेश्य मनो ये मां नित्ययुक्ता उपासते।<br>
+                            श्रद्धया परयोपेतास्ते मे युक्ततमा मता:॥
+                        </div>
+                        <div class="transliteration">
+                            mayy āveśya mano ye māṁ nitya-yuktā upāsate<br>
+                            śraddhayā parayopetās te me yuktatamā matāḥ
+                        </div>
+                        <div class="translation">
+                            Those who fix their minds on Me and worship Me with unwavering faith, being always absorbed in Me—they are the most perfect in yoga, in My opinion.
+                        </div>
+                        <div class="word-meanings">
+                            <h4>Word-by-Word Meanings:</h4>
+                            <div class="word-grid">
+                                <div class="word-pair">
+                                    <span class="sanskrit-word">मयि</span>
+                                    <span class="meaning">mayi = in Me</span>
+                                </div>
+                                <div class="word-pair">
+                                    <span class="sanskrit-word">आवेश्य</span>
+                                    <span class="meaning">āveśya = fixing</span>
+                                </div>
+                                <div class="word-pair">
+                                    <span class="sanskrit-word">मन:</span>
+                                    <span class="meaning">manaḥ = mind</span>
+                                </div>
+                                <div class="word-pair">
+                                    <span class="sanskrit-word">ये</span>
+                                    <span class="meaning">ye = those who</span>
+                                </div>
+                                <div class="word-pair">
+                                    <span class="sanskrit-word">माम्</span>
+                                    <span class="meaning">mām = Me</span>
+                                </div>
+                                <div class="word-pair">
+                                    <span class="sanskrit-word">नित्ययुक्ता:</span>
+                                    <span class="meaning">nitya-yuktāḥ = always engaged</span>
+                                </div>
+                                <div class="word-pair">
+                                    <span class="sanskrit-word">उपासते</span>
+                                    <span class="meaning">upāsate = worship</span>
+                                </div>
+                                <div class="word-pair">
+                                    <span class="sanskrit-word">श्रद्धया</span>
+                                    <span class="meaning">śraddhayā = with faith</span>
+                                </div>
+                                <div class="word-pair">
+                                    <span class="sanskrit-word">परयोपेता:</span>
+                                    <span class="meaning">parayopetāḥ = endowed with supreme</span>
+                                </div>
+                                <div class="word-pair">
+                                    <span class="sanskrit-word">ते</span>
+                                    <span class="meaning">te = they</span>
+                                </div>
+                                <div class="word-pair">
+                                    <span class="sanskrit-word">मे</span>
+                                    <span class="meaning">me = My</span>
+                                </div>
+                                <div class="word-pair">
+                                    <span class="sanskrit-word">युक्ततमा:</span>
+                                    <span class="meaning">yuktatamāḥ = most perfect in yoga</span>
+                                </div>
+                                <div class="word-pair">
+                                    <span class="sanskrit-word">मता:</span>
+                                    <span class="meaning">matāḥ = opinion</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Continue with remaining verses... -->
+                <!-- I'll add a few more key verses for now -->
+
+                <!-- Verse 6-7 -->
+                <div class="verse-card">
+                    <div class="verse-header">
+                        <span class="verse-number">Verse 12.6-7</span>
+                        <span class="verse-theme">Liberation for Devotees</span>
+                    </div>
+                    <div class="verse-content">
+                        <div class="sanskrit">
+                            ये तु सर्वाणि कर्माणि मयि संन्यस्य मत्परा:।<br>
+                            अनन्येनैव योगेन मां ध्यायन्त उपासते॥<br><br>
+                            तेषामहं समुद्धर्ता मृत्युसंसारसागरात्।<br>
+                            भवामि नचिरात्पार्थ मय्यावेशितचेतसाम्॥
+                        </div>
+                        <div class="transliteration">
+                            ye tu sarvāṇi karmāṇi mayi sannyasya mat-parāḥ<br>
+                            ananyenaiva yogena māṁ dhyāyanta upāsate<br><br>
+                            teṣām ahaṁ samuddhartā mṛtyu-saṁsāra-sāgarāt<br>
+                            bhavāmi na cirāt pārtha mayy āveśita-cetasām
+                        </div>
+                        <div class="translation">
+                            But those who worship Me, surrendering all their activities to Me, regarding Me as the supreme goal, meditating on Me with single-pointed devotion—for them, whose consciousness is absorbed in Me, O Arjuna, I become the savior from the ocean of death and birth without delay.
+                        </div>
+                        <div class="word-meanings">
+                            <h4>Word-by-Word Meanings:</h4>
+                            <div class="word-grid">
+                                <div class="word-pair">
+                                    <span class="sanskrit-word">ये</span>
+                                    <span class="meaning">ye = those who</span>
+                                </div>
+                                <div class="word-pair">
+                                    <span class="sanskrit-word">तु</span>
+                                    <span class="meaning">tu = but</span>
+                                </div>
+                                <div class="word-pair">
+                                    <span class="sanskrit-word">सर्वाणि</span>
+                                    <span class="meaning">sarvāṇi = all</span>
+                                </div>
+                                <div class="word-pair">
+                                    <span class="sanskrit-word">कर्माणि</span>
+                                    <span class="meaning">karmāṇi = activities</span>
+                                </div>
+                                <div class="word-pair">
+                                    <span class="sanskrit-word">मयि</span>
+                                    <span class="meaning">mayi = unto Me</span>
+                                </div>
+                                <div class="word-pair">
+                                    <span class="sanskrit-word">संन्यस्य</span>
+                                    <span class="meaning">sannyasya = surrendering</span>
+                                </div>
+                                <div class="word-pair">
+                                    <span class="sanskrit-word">मत्परा:</span>
+                                    <span class="meaning">mat-parāḥ = devoted to Me</span>
+                                </div>
+                                <div class="word-pair">
+                                    <span class="sanskrit-word">समुद्धर्ता</span>
+                                    <span class="meaning">samuddhartā = deliverer</span>
+                                </div>
+                                <div class="word-pair">
+                                    <span class="sanskrit-word">मृत्युसंसारसागरात्</span>
+                                    <span class="meaning">mṛtyu-saṁsāra-sāgarāt = from ocean of death and birth</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Verse 13-14 -->
+                <div class="verse-card">
+                    <div class="verse-header">
+                        <span class="verse-number">Verse 12.13-14</span>
+                        <span class="verse-theme">Qualities of Dear Devotees</span>
+                    </div>
+                    <div class="verse-content">
+                        <div class="sanskrit">
+                            अद्वेष्टा सर्वभूतानां मैत्र: करुण एव च।<br>
+                            निर्ममो निरहङ्कार: समदु:खसुख: क्षमी॥<br><br>
+                            सन्तुष्ट: सततं योगी यतात्मा दृढनिश्चय:।<br>
+                            मय्यर्पितमनोबुद्धिर्यो मद्भक्त: स मे प्रिय:॥
+                        </div>
+                        <div class="transliteration">
+                            adveṣṭā sarva-bhūtānāṁ maitraḥ karuṇa eva ca<br>
+                            nirmamo nirahaṅkāraḥ sama-duḥkha-sukhaḥ kṣamī<br><br>
+                            santuṣṭaḥ satataṁ yogī yatātmā dṛḍha-niścayaḥ<br>
+                            mayy arpita-mano-buddhir yo mad-bhaktaḥ sa me priyaḥ
+                        </div>
+                        <div class="translation">
+                            One who is not envious but is a kind friend to all beings, who does not think himself a proprietor and is free from false ego, who is equal in both happiness and distress, who is tolerant, always satisfied, self-controlled, and engaged in devotional service with determination, his mind and intelligence fixed on Me—such a devotee of Mine is very dear to Me.
+                        </div>
+                        <div class="word-meanings">
+                            <h4>Word-by-Word Meanings:</h4>
+                            <div class="word-grid">
+                                <div class="word-pair">
+                                    <span class="sanskrit-word">अद्वेष्टा</span>
+                                    <span class="meaning">adveṣṭā = non-envious</span>
+                                </div>
+                                <div class="word-pair">
+                                    <span class="sanskrit-word">सर्वभूतानाम्</span>
+                                    <span class="meaning">sarva-bhūtānām = to all living entities</span>
+                                </div>
+                                <div class="word-pair">
+                                    <span class="sanskrit-word">मैत्र:</span>
+                                    <span class="meaning">maitraḥ = friendly</span>
+                                </div>
+                                <div class="word-pair">
+                                    <span class="sanskrit-word">करुण:</span>
+                                    <span class="meaning">karuṇaḥ = compassionate</span>
+                                </div>
+                                <div class="word-pair">
+                                    <span class="sanskrit-word">निर्मम:</span>
+                                    <span class="meaning">nirmamaḥ = without sense of proprietorship</span>
+                                </div>
+                                <div class="word-pair">
+                                    <span class="sanskrit-word">निरहङ्कार:</span>
+                                    <span class="meaning">nirahaṅkāraḥ = without false ego</span>
+                                </div>
+                                <div class="word-pair">
+                                    <span class="sanskrit-word">समदु:खसुख:</span>
+                                    <span class="meaning">sama-duḥkha-sukhaḥ = equal in distress and happiness</span>
+                                </div>
+                                <div class="word-pair">
+                                    <span class="sanskrit-word">सन्तुष्ट:</span>
+                                    <span class="meaning">santuṣṭaḥ = satisfied</span>
+                                </div>
+                                <div class="word-pair">
+                                    <span class="sanskrit-word">यतात्मा</span>
+                                    <span class="meaning">yatātmā = self-controlled</span>
+                                </div>
+                                <div class="word-pair">
+                                    <span class="sanskrit-word">दृढनिश्चय:</span>
+                                    <span class="meaning">dṛḍha-niścayaḥ = with determination</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Verse 20 -->
+                <div class="verse-card">
+                    <div class="verse-header">
+                        <span class="verse-number">Verse 12.20</span>
+                        <span class="verse-theme">Supreme Devotees</span>
+                    </div>
+                    <div class="verse-content">
+                        <div class="sanskrit">
+                            ये तु धर्म्यामृतमिदं यथोक्तं पर्युपासते।<br>
+                            श्रद्दधाना मत्परमा भक्तास्तेऽतीव मे प्रिया:॥
+                        </div>
+                        <div class="transliteration">
+                            ye tu dharmyāmṛtam idaṁ yathoktaṁ paryupāsate<br>
+                            śraddadhānā mat-paramā bhaktās te 'tīva me priyāḥ
+                        </div>
+                        <div class="translation">
+                            Those who follow this immortal dharma as I have explained, full of faith and devotion and intent on Me as the Supreme—such devotees are exceedingly dear to Me.
+                        </div>
+                        <div class="word-meanings">
+                            <h4>Word-by-Word Meanings:</h4>
+                            <div class="word-grid">
+                                <div class="word-pair">
+                                    <span class="sanskrit-word">ये</span>
+                                    <span class="meaning">ye = those who</span>
+                                </div>
+                                <div class="word-pair">
+                                    <span class="sanskrit-word">तु</span>
+                                    <span class="meaning">tu = indeed</span>
+                                </div>
+                                <div class="word-pair">
+                                    <span class="sanskrit-word">धर्म्यामृतम्</span>
+                                    <span class="meaning">dharmyāmṛtam = nectar of dharma</span>
+                                </div>
+                                <div class="word-pair">
+                                    <span class="sanskrit-word">इदम्</span>
+                                    <span class="meaning">idam = this</span>
+                                </div>
+                                <div class="word-pair">
+                                    <span class="sanskrit-word">यथोक्तम्</span>
+                                    <span class="meaning">yathoktam = as explained</span>
+                                </div>
+                                <div class="word-pair">
+                                    <span class="sanskrit-word">पर्युपासते</span>
+                                    <span class="meaning">paryupāsate = worship completely</span>
+                                </div>
+                                <div class="word-pair">
+                                    <span class="sanskrit-word">श्रद्दधाना:</span>
+                                    <span class="meaning">śraddadhānāḥ = full of faith</span>
+                                </div>
+                                <div class="word-pair">
+                                    <span class="sanskrit-word">मत्परमा:</span>
+                                    <span class="meaning">mat-paramāḥ = devoted to Me as Supreme</span>
+                                </div>
+                                <div class="word-pair">
+                                    <span class="sanskrit-word">भक्ता:</span>
+                                    <span class="meaning">bhaktāḥ = devotees</span>
+                                </div>
+                                <div class="word-pair">
+                                    <span class="sanskrit-word">ते</span>
+                                    <span class="meaning">te = they</span>
+                                </div>
+                                <div class="word-pair">
+                                    <span class="sanskrit-word">अतीव</span>
+                                    <span class="meaning">atīva = exceedingly</span>
+                                </div>
+                                <div class="word-pair">
+                                    <span class="sanskrit-word">मे</span>
+                                    <span class="meaning">me = to Me</span>
+                                </div>
+                                <div class="word-pair">
+                                    <span class="sanskrit-word">प्रिया:</span>
+                                    <span class="meaning">priyāḥ = dear</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chapter Summary -->
+            <div class="chapter-summary">
+                <h3>🌺 Chapter Summary</h3>
+                <p>In this beautiful chapter on Bhakti Yoga, Krishna reveals that the path of loving devotion to the personal form of God is superior to the impersonal approach. He describes the qualities of an ideal devotee: non-envious, friendly to all beings, free from possessiveness and false ego, equal-minded in joy and sorrow, forgiving, satisfied, self-controlled, and firmly determined. Such devotees, who fix their minds and intelligence on Krishna with unwavering faith, are most dear to Him and are quickly delivered from the ocean of birth and death.</p>
+                
+                <div class="key-teachings">
+                    <h4>🔑 Key Teachings:</h4>
+                    <ul>
+                        <li><strong>Personal vs Impersonal:</strong> Devotion to the personal form is easier and more natural for most people</li>
+                        <li><strong>Divine Qualities:</strong> Compassion, humility, detachment, and equanimity mark true devotees</li>
+                        <li><strong>Complete Surrender:</strong> Offering all actions and thoughts to the Divine leads to liberation</li>
+                        <li><strong>Divine Grace:</strong> Krishna personally delivers His devoted followers from all suffering</li>
+                        <li><strong>Universal Love:</strong> True devotees see the Divine in all beings and serve with love</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Chapter Navigation Bottom -->
+            <div class="chapter-nav bottom">
+                <a href="chapter11.html" class="nav-btn prev-chapter">← Chapter 11: The Universal Form</a>
+                <a href="chapter13.html" class="nav-btn next-chapter">Chapter 13: The Field and Knower →</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>🕉️ Sacred Wisdom</h3>
+                    <p>Preserving and sharing the eternal wisdom of the Bhagavad Gita for spiritual seekers worldwide.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Share on Facebook">📘</a>
+                        <a href="#" aria-label="Share on Twitter">🐦</a>
+                        <a href="#" aria-label="Share on Instagram">📷</a>
+                        <a href="#" aria-label="YouTube Channel">📺</a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Study Resources</h4>
+                    <ul>
+                        <li><a href="index.html#chapters">All Chapters</a></li>
+                        <li><a href="index.html#verses">Daily Verses</a></li>
+                        <li><a href="index.html#teachings">Key Teachings</a></li>
+                        <li><a href="index.html#commentary">Commentary</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Spiritual Practice</h4>
+                    <ul>
+                        <li><a href="index.html#meditation">Meditation Guide</a></li>
+                        <li><a href="index.html#chanting">Sanskrit Pronunciation</a></li>
+                        <li><a href="index.html#reflection">Daily Reflection</a></li>
+                        <li><a href="index.html#community">Study Groups</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Sacred Quote</h4>
+                    <blockquote class="footer-quote">
+                        <p class="sanskrit">"योगस्थ: कुरु कर्माणि"</p>
+                        <p>"Established in yoga, perform action"</p>
+                        <cite>- Bhagavad Gita 2.48</cite>
+                    </blockquote>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Bhagavad Gita Portal. Created with devotion for spiritual seekers.</p>
+                <p>🙏 May this sacred wisdom guide all beings toward peace and liberation 🙏</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
