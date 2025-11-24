@@ -70,35 +70,63 @@
             </div>
 
             <!-- Chapter Navigation -->
-            <div class="chapter-nav">
-                <a href="chapter11.html" class="nav-btn prev-chapter">
-                    <span class="nav-icon">←</span>
-                    <div class="nav-content">
-                        <span class="nav-label">Previous</span>
-                        <span class="nav-title">Chapter 11</span>
-                    </div>
-                </a>
-                <div class="chapter-controls">
-                    <button class="control-btn" id="playAudio" title="Play Chapter Audio">
-                        <span>🔊</span>
-                    </button>
-                    <button class="control-btn" id="bookmarkChapter" title="Bookmark Chapter">
-                        <span>📖</span>
-                    </button>
-                    <button class="control-btn" id="shareChapter" title="Share Chapter">
-                        <span>📤</span>
-                    </button>
-                    <button class="control-btn" id="printChapter" title="Print Chapter">
-                        <span>🖨️</span>
-                    </button>
+            <div class="chapter-nav-top">
+                <div class="nav-section prev-section">
+                    <a href="chapter11.html" class="nav-btn-enhanced prev-chapter">
+                        <div class="nav-arrow">←</div>
+                        <div class="nav-details">
+                            <div class="nav-label">Previous Chapter</div>
+                            <div class="nav-number">Chapter 11</div>
+                            <div class="nav-title">विश्वरूप दर्शन योग</div>
+                            <div class="nav-subtitle">The Universal Form</div>
+                        </div>
+                    </a>
                 </div>
-                <a href="chapter13.html" class="nav-btn next-chapter">
-                    <div class="nav-content">
-                        <span class="nav-label">Next</span>
-                        <span class="nav-title">Chapter 13</span>
+                
+                <div class="chapter-controls-enhanced">
+                    <div class="controls-header">
+                        <span class="controls-title">Chapter Tools</span>
                     </div>
-                    <span class="nav-icon">→</span>
-                </a>
+                    <div class="controls-grid">
+                        <button class="control-btn-enhanced audio-btn" id="playAudio" title="Listen to Chapter Audio (Sanskrit & Translation)">
+                            <div class="control-icon">🔊</div>
+                            <div class="control-label">Listen</div>
+                        </button>
+                        <button class="control-btn-enhanced bookmark-btn" id="bookmarkChapter" title="Bookmark this Chapter for Later">
+                            <div class="control-icon">📖</div>
+                            <div class="control-label">Bookmark</div>
+                        </button>
+                        <button class="control-btn-enhanced share-btn" id="shareChapter" title="Share Chapter with Others">
+                            <div class="control-icon">📤</div>
+                            <div class="control-label">Share</div>
+                        </button>
+                        <button class="control-btn-enhanced print-btn" id="printChapter" title="Print Chapter for Study">
+                            <div class="control-icon">🖨️</div>
+                            <div class="control-label">Print</div>
+                        </button>
+                    </div>
+                    <div class="chapter-progress">
+                        <div class="progress-info">
+                            <span class="progress-text">Chapter 12 of 18</span>
+                            <span class="progress-percentage">66%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 66.67%"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="nav-section next-section">
+                    <a href="chapter13.html" class="nav-btn-enhanced next-chapter">
+                        <div class="nav-details">
+                            <div class="nav-label">Next Chapter</div>
+                            <div class="nav-number">Chapter 13</div>
+                            <div class="nav-title">क्षेत्र क्षेत्रज्ञ विभाग योग</div>
+                            <div class="nav-subtitle">The Field and the Knower</div>
+                        </div>
+                        <div class="nav-arrow">→</div>
+                    </a>
+                </div>
             </div>
 
             <!-- Verses Container -->
@@ -478,25 +506,111 @@
 
             <!-- Chapter Summary -->
             <div class="chapter-summary">
-                <h3>🌺 Chapter Summary</h3>
-                <p>In this beautiful chapter on Bhakti Yoga, Krishna reveals that the path of loving devotion to the personal form of God is superior to the impersonal approach. He describes the qualities of an ideal devotee: non-envious, friendly to all beings, free from possessiveness and false ego, equal-minded in joy and sorrow, forgiving, satisfied, self-controlled, and firmly determined. Such devotees, who fix their minds and intelligence on Krishna with unwavering faith, are most dear to Him and are quickly delivered from the ocean of birth and death.</p>
+                <div class="summary-header">
+                    <h3><span class="summary-icon">🌺</span> Chapter Summary</h3>
+                    <div class="summary-stats">
+                        <span class="stat-badge devotion">💖 Bhakti</span>
+                        <span class="stat-badge wisdom">📿 20 Verses</span>
+                        <span class="stat-badge essence">🙏 Surrender</span>
+                    </div>
+                </div>
                 
-                <div class="key-teachings">
-                    <h4>🔑 Key Teachings:</h4>
-                    <ul>
-                        <li><strong>Personal vs Impersonal:</strong> Devotion to the personal form is easier and more natural for most people</li>
-                        <li><strong>Divine Qualities:</strong> Compassion, humility, detachment, and equanimity mark true devotees</li>
-                        <li><strong>Complete Surrender:</strong> Offering all actions and thoughts to the Divine leads to liberation</li>
-                        <li><strong>Divine Grace:</strong> Krishna personally delivers His devoted followers from all suffering</li>
-                        <li><strong>Universal Love:</strong> True devotees see the Divine in all beings and serve with love</li>
-                    </ul>
+                <div class="summary-content">
+                    <div class="summary-main">
+                        <p class="summary-intro">In this beautiful chapter on <strong>Bhakti Yoga</strong>, Krishna reveals that the path of loving devotion to the personal form of God is superior to the impersonal approach. This chapter is the heart of devotional practice, showing us how to develop pure love for the Divine.</p>
+                        
+                        <div class="chapter-essence">
+                            <h4 class="essence-title">✨ The Essence</h4>
+                            <p>Krishna describes the qualities of an ideal devotee: non-envious, friendly to all beings, free from possessiveness and false ego, equal-minded in joy and sorrow, forgiving, satisfied, self-controlled, and firmly determined. Such devotees, who fix their minds and intelligence on Krishna with unwavering faith, are most dear to Him and are quickly delivered from the ocean of birth and death.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="key-teachings">
+                        <h4 class="teachings-title">🔑 Key Teachings</h4>
+                        <div class="teachings-grid">
+                            <div class="teaching-item">
+                                <div class="teaching-icon">👤</div>
+                                <div class="teaching-content">
+                                    <h5>Personal vs Impersonal</h5>
+                                    <p>Devotion to the personal form is easier and more natural for most people</p>
+                                </div>
+                            </div>
+                            <div class="teaching-item">
+                                <div class="teaching-icon">🌟</div>
+                                <div class="teaching-content">
+                                    <h5>Divine Qualities</h5>
+                                    <p>Compassion, humility, detachment, and equanimity mark true devotees</p>
+                                </div>
+                            </div>
+                            <div class="teaching-item">
+                                <div class="teaching-icon">🙏</div>
+                                <div class="teaching-content">
+                                    <h5>Complete Surrender</h5>
+                                    <p>Offering all actions and thoughts to the Divine leads to liberation</p>
+                                </div>
+                            </div>
+                            <div class="teaching-item">
+                                <div class="teaching-icon">🌈</div>
+                                <div class="teaching-content">
+                                    <h5>Divine Grace</h5>
+                                    <p>Krishna personally delivers His devoted followers from all suffering</p>
+                                </div>
+                            </div>
+                            <div class="teaching-item">
+                                <div class="teaching-icon">💝</div>
+                                <div class="teaching-content">
+                                    <h5>Universal Love</h5>
+                                    <p>True devotees see the Divine in all beings and serve with love</p>
+                                </div>
+                            </div>
+                            <div class="teaching-item">
+                                <div class="teaching-icon">🏠</div>
+                                <div class="teaching-content">
+                                    <h5>Path Home</h5>
+                                    <p>Bhakti Yoga is the direct path back to our eternal spiritual home</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="practical-wisdom">
+                        <h4 class="wisdom-title">🌱 Practical Wisdom</h4>
+                        <div class="wisdom-content">
+                            <p>This chapter teaches us to approach life with a devotional heart. See every interaction as service to the Divine, treat all beings with compassion, and remember that love is the highest spiritual practice. Start each day with gratitude and end it with surrender.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
 
             <!-- Chapter Navigation Bottom -->
-            <div class="chapter-nav bottom">
-                <a href="chapter11.html" class="nav-btn prev-chapter">← Chapter 11: The Universal Form</a>
-                <a href="chapter13.html" class="nav-btn next-chapter">Chapter 13: The Field and Knower →</a>
+            <div class="chapter-navigation">
+                <div class="nav-card prev-card">
+                    <a href="chapter11.html" class="nav-link">
+                        <div class="nav-direction">← Previous Chapter</div>
+                        <div class="nav-number">Chapter 11</div>
+                        <div class="nav-title">Visvarupa Darsana Yoga</div>
+                        <div class="nav-subtitle">The Universal Form</div>
+                        <div class="nav-description">Arjuna witnesses Krishna's cosmic manifestation</div>
+                    </a>
+                </div>
+                
+                <div class="nav-center">
+                    <div class="current-chapter">
+                        <div class="current-icon">🌺</div>
+                        <div class="current-text">Chapter 12</div>
+                        <div class="current-title">Bhakti Yoga</div>
+                    </div>
+                </div>
+                
+                <div class="nav-card next-card">
+                    <a href="chapter13.html" class="nav-link">
+                        <div class="nav-direction">Next Chapter →</div>
+                        <div class="nav-number">Chapter 13</div>
+                        <div class="nav-title">Ksetra Ksetrajna Vibhaga Yoga</div>
+                        <div class="nav-subtitle">The Field and the Knower</div>
+                        <div class="nav-description">Understanding body, soul, and consciousness</div>
+                    </a>
+                </div>
             </div>
         </div>
     </main>
