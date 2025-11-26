@@ -765,6 +765,11 @@ function navigateToChapter(chapterNumber) {
     // Map of available chapter pages
     const availableChapters = {
         1: 'chapter1.html',
+        2: 'chapter2.html',
+        3: 'chapter3.html',
+        4: 'chapter4.html',
+        5: 'chapter5.html',
+        6: 'chapter6.html',
         9: 'chapter9.html',
         12: 'chapter12.html',
         15: 'chapter15.html'
