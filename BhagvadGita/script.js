@@ -770,8 +770,13 @@ function navigateToChapter(chapterNumber) {
         4: 'chapter4.html',
         5: 'chapter5.html',
         6: 'chapter6.html',
+        7: 'chapter7.html',
+        8: 'chapter8.html',
         9: 'chapter9.html',
+        10: 'chapter10.html',
+        11: 'chapter11.html',
         12: 'chapter12.html',
+        13: 'chapter13.html',
         15: 'chapter15.html'
     };
     
