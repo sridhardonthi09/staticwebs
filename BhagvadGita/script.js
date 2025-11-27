@@ -566,6 +566,68 @@ document.addEventListener('DOMContentLoaded', function() {
     updateCurrentDate();
 });
 
+// ===== DYNAMIC META TAGS FOR SOCIAL SHARING =====
+function updateSocialMetaTags() {
+    // Only run on chapter pages
+    if (!window.location.pathname.includes('chapter')) return;
+    
+    const chapterTitle = document.querySelector('.chapter-title-english')?.textContent || 'Bhagavad Gita Chapter';
+    const chapterSubtitle = document.querySelector('.chapter-subtitle')?.textContent || '';
+    const sanskritTitle = document.querySelector('.chapter-title')?.textContent || '';
+    
+    // Get chapter number from URL
+    const chapterNumber = window.location.pathname.match(/chapter(\d+)/)?.[1];
+    
+    // Spiritual images for different chapters
+    const chapterImages = {
+        '1': 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=1200&h=630&fit=crop&crop=center&q=80', // Battlefield/warrior
+        '2': 'https://images.unsplash.com/photo-1571068316344-75bc76f77890?w=1200&h=630&fit=crop&crop=center&q=80', // Soul/meditation
+        '3': 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&h=630&fit=crop&crop=center&q=80', // Action/work
+        '4': 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1200&h=630&fit=crop&crop=center&q=80', // Knowledge/wisdom
+        '5': 'https://images.unsplash.com/photo-1545558014-8692077e9b5c?w=1200&h=630&fit=crop&crop=center&q=80', // Renunciation/peace
+        '6': 'https://images.unsplash.com/photo-1544027993-37dbfe43562a?w=1200&h=630&fit=crop&crop=center&q=80', // Meditation/yoga
+        '7': 'https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=1200&h=630&fit=crop&crop=center&q=80', // Divine knowledge
+        '8': 'https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=1200&h=630&fit=crop&crop=center&q=80', // Eternal/cosmic
+        '9': 'https://images.unsplash.com/photo-1582649264880-3e59c69c3b1e?w=1200&h=630&fit=crop&crop=center&q=80', // Royal knowledge/devotion
+        '10': 'https://images.unsplash.com/photo-1593365081881-e8b19b1b5043?w=1200&h=630&fit=crop&crop=center&q=80', // Divine opulences
+        '11': 'https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=1200&h=630&fit=crop&crop=center&q=80', // Universal form
+        '12': 'https://images.unsplash.com/photo-1582649264880-3e59c69c3b1e?w=1200&h=630&fit=crop&crop=center&q=80', // Devotion/love
+        '13': 'https://images.unsplash.com/photo-1571068316344-75bc76f77890?w=1200&h=630&fit=crop&crop=center&q=80', // Field and knower
+        '14': 'https://images.unsplash.com/photo-1544027993-37dbfe43562a?w=1200&h=630&fit=crop&crop=center&q=80', // Three modes
+        '15': 'https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=1200&h=630&fit=crop&crop=center&q=80', // Supreme person
+        '16': 'https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=1200&h=630&fit=crop&crop=center&q=80', // Divine vs demonic
+        '17': 'https://images.unsplash.com/photo-1593365081881-e8b19b1b5043?w=1200&h=630&fit=crop&crop=center&q=80', // Faith/Om Tat Sat
+        '18': 'https://images.unsplash.com/photo-1545558014-8692077e9b5c?w=1200&h=630&fit=crop&crop=center&q=80'  // Liberation/surrender
+    };
+    
+    const chapterImage = chapterImages[chapterNumber] || 'https://images.unsplash.com/photo-1544027993-37dbfe43562a?w=1200&h=630&fit=crop&crop=center&q=80';
+    
+    // Update Open Graph tags
+    updateOrCreateMeta('og:title', `${chapterTitle} - ${chapterSubtitle}`);
+    updateOrCreateMeta('og:description', `Discover Krishna's divine teachings in ${chapterTitle}. Complete with Sanskrit verses, translations, and spiritual insights from the sacred Bhagavad Gita.`);
+    updateOrCreateMeta('og:image', chapterImage);
+    updateOrCreateMeta('og:type', 'article');
+    
+    // Update Twitter tags
+    updateOrCreateMeta('twitter:title', `${chapterTitle} - ${chapterSubtitle}`);
+    updateOrCreateMeta('twitter:description', `Sacred wisdom from ${chapterTitle} with Sanskrit verses and English translations.`);
+    updateOrCreateMeta('twitter:image', chapterImage);
+    updateOrCreateMeta('twitter:card', 'summary_large_image');
+    
+    // Update page title
+    document.title = `${chapterTitle} - ${chapterSubtitle} | Bhagavad Gita`;
+}
+
+function updateOrCreateMeta(property, content) {
+    let meta = document.querySelector(`meta[property="${property}"]`);
+    if (!meta) {
+        meta = document.createElement('meta');
+        meta.setAttribute('property', property);
+        document.head.appendChild(meta);
+    }
+    meta.setAttribute('content', content);
+}
+
 function initializeApp() {
     // Set random verse for daily verse
     currentVerseIndex = Math.floor(Math.random() * verses.length);
@@ -578,6 +640,9 @@ function initializeApp() {
     
     // Setup commentary tabs
     setupCommentaryTabs();
+    
+    // Update social meta tags for better sharing
+    updateSocialMetaTags();
     
     console.log('🕉️ Bhagavad Gita Portal initialized');
 }
@@ -875,6 +940,48 @@ function setupEventListeners() {
     if (shareBtn) shareBtn.addEventListener('click', shareVerse);
     if (saveBtn) saveBtn.addEventListener('click', saveVerse);
     if (newVerseBtn) newVerseBtn.addEventListener('click', getNewVerse);
+    
+    // Social media sharing buttons
+    setupSocialMediaButtons();
+}
+
+function setupSocialMediaButtons() {
+    // Wait for DOM to be ready
+    setTimeout(() => {
+        const socialLinks = document.querySelectorAll('.social-links a');
+        
+        socialLinks.forEach((link, index) => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const icon = this.textContent.trim();
+                switch(icon) {
+                    case '📘':
+                        shareOnFacebook();
+                        break;
+                    case '🐦':
+                        shareOnTwitter();
+                        break;
+                    case '📷':
+                        shareOnInstagram();
+                        break;
+                    case '📺':
+                        openYouTube();
+                        break;
+                }
+            });
+            
+            // Add hover effects
+            link.addEventListener('mouseenter', function() {
+                this.style.transform = 'scale(1.1) translateY(-2px)';
+                this.style.transition = 'all 0.2s ease';
+            });
+            
+            link.addEventListener('mouseleave', function() {
+                this.style.transform = 'scale(1) translateY(0)';
+            });
+        });
+    }, 100);
 }
 
 function updateCurrentDate() {
@@ -1231,6 +1338,162 @@ function setupAccessibility() {
         navToggle.setAttribute('aria-label', 'Toggle navigation menu');
         navToggle.setAttribute('aria-expanded', 'false');
     }
+}
+
+// ===== SOCIAL MEDIA SHARING =====
+function shareOnFacebook() {
+    const url = encodeURIComponent(window.location.href);
+    
+    // Use Facebook's sharer with Open Graph meta tags
+    const shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
+    
+    window.open(shareUrl, 'facebook-share', 'width=626,height=436,scrollbars=yes,resizable=yes');
+    trackSocialShare('facebook');
+}
+
+function shareOnTwitter() {
+    const url = encodeURIComponent(window.location.href);
+    let title, hashtags;
+    
+    // Customize content based on current page
+    if (window.location.pathname.includes('chapter')) {
+        const chapterTitle = document.querySelector('.chapter-title-english')?.textContent || 'Bhagavad Gita Chapter';
+        const chapterSubtitle = document.querySelector('.chapter-subtitle')?.textContent || '';
+        title = encodeURIComponent(`📖 ${chapterTitle}: ${chapterSubtitle}\n\n🕉️ Discover Krishna's divine wisdom in this sacred chapter.`);
+        hashtags = encodeURIComponent('BhagavadGita,Krishna,Spirituality,Wisdom,Yoga,Dharma,SanskritWisdom');
+    } else {
+        title = encodeURIComponent('🕉️ Complete Bhagavad Gita with Sanskrit verses & translations\n\n📿 18 chapters of eternal spiritual wisdom\n🙏 Perfect for daily study & meditation');
+        hashtags = encodeURIComponent('BhagavadGita,Krishna,Spirituality,Wisdom,Yoga,SacredTexts,Meditation');
+    }
+    
+    const shareUrl = `https://twitter.com/intent/tweet?url=${url}&text=${title}&hashtags=${hashtags}`;
+    window.open(shareUrl, 'twitter-share', 'width=626,height=436,scrollbars=yes,resizable=yes');
+    trackSocialShare('twitter');
+}
+
+function shareOnInstagram() {
+    const url = window.location.href;
+    
+    let shareText, storyText;
+    if (window.location.pathname.includes('chapter')) {
+        const chapterTitle = document.querySelector('.chapter-title-english')?.textContent || 'Bhagavad Gita Chapter';
+        const chapterSubtitle = document.querySelector('.chapter-subtitle')?.textContent || '';
+        const sanskritTitle = document.querySelector('.chapter-title')?.textContent || '';
+        
+        shareText = `📖 ${chapterTitle}\n${sanskritTitle}\n\n✨ ${chapterSubtitle}\n\n🕉️ Discover Krishna's divine teachings in this sacred chapter of the Bhagavad Gita\n\n🔗 Link in bio: ${url}\n\n#BhagavadGita #Krishna #Spirituality #Wisdom #Yoga #Sanskrit #Dharma #Meditation #SacredTexts #SpiritualWisdom`;
+        
+        storyText = `Currently studying: ${chapterTitle} 📖\n\n🕉️ Swipe up for full chapter\n\n#BhagavadGita #Krishna`;
+    } else {
+        shareText = `🕉️ BHAGAVAD GITA\nSacred Wisdom Portal\n\n📖 Complete 18 chapters with:\n✨ Sanskrit verses\n🌟 English translations\n💫 Word-by-word meanings\n🙏 Spiritual insights\n\n🔗 ${url}\n\n#BhagavadGita #Krishna #Spirituality #SacredWisdom #Yoga #Sanskrit #Dharma #Meditation #Philosophy #HinduScripture`;
+        
+        storyText = `🕉️ Complete Bhagavad Gita\nwith Sanskrit & translations\n\nSwipe up to explore! 📖`;
+    }
+    
+    copyToClipboard(shareText);
+    
+    const notification = document.createElement('div');
+    notification.style.cssText = `
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: linear-gradient(135deg, #E1306C, #F56040, #FFDC80);
+        color: white;
+        padding: 2.5rem;
+        border-radius: 20px;
+        box-shadow: 0 25px 50px rgba(225, 48, 108, 0.4);
+        z-index: 10000;
+        text-align: center;
+        max-width: 450px;
+        font-family: 'Inter', sans-serif;
+        backdrop-filter: blur(10px);
+    `;
+    
+    notification.innerHTML = `
+        <div style="font-size: 3rem; margin-bottom: 1.5rem; animation: bounce 2s infinite;">📱</div>
+        <h3 style="margin-bottom: 1rem; color: white; font-size: 1.5rem;">Share on Instagram</h3>
+        <p style="margin-bottom: 2rem; line-height: 1.6; opacity: 0.95;">
+            Perfect caption & link copied! Choose how you'd like to share this spiritual wisdom.
+        </p>
+        <div style="display: flex; gap: 1rem; justify-content: center; margin-bottom: 2rem;">
+            <button onclick="this.parentElement.parentElement.parentElement.remove(); window.open('https://instagram.com', '_blank')" 
+                    style="background: rgba(255,255,255,0.2); color: white; border: 1px solid rgba(255,255,255,0.4); padding: 1rem 1.5rem; border-radius: 12px; cursor: pointer; font-weight: 500; transition: all 0.2s; display: flex; align-items: center; gap: 0.5rem;">
+                📱 Open Instagram
+            </button>
+            <button onclick="this.parentElement.parentElement.parentElement.remove()" 
+                    style="background: rgba(255,255,255,0.9); color: #E1306C; border: none; padding: 1rem 1.5rem; border-radius: 12px; cursor: pointer; font-weight: 600; transition: all 0.2s;">
+                ✅ Done
+            </button>
+        </div>
+        <div style="background: rgba(0,0,0,0.2); border-radius: 12px; padding: 1.5rem; text-align: left; max-height: 150px; overflow-y: auto;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                <strong style="color: white;">📋 Ready to paste:</strong>
+                <span style="font-size: 0.8rem; opacity: 0.7;">Post or Story</span>
+            </div>
+            <div style="font-size: 0.9rem; opacity: 0.9; font-style: italic; line-height: 1.4; border-left: 3px solid rgba(255,255,255,0.3); padding-left: 1rem;">
+                ${shareText.substring(0, 200)}${shareText.length > 200 ? '...' : ''}
+            </div>
+        </div>
+        <div style="margin-top: 1rem; font-size: 0.85rem; opacity: 0.8; display: flex; align-items: center; justify-content: center; gap: 0.5rem;">
+            <span>💡</span> Tip: Works great for both Posts and Stories!
+        </div>
+    `;
+    
+    // Add CSS animation
+    const style = document.createElement('style');
+    style.textContent = `
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+    `;
+    document.head.appendChild(style);
+    
+    document.body.appendChild(notification);
+    
+    // Copy the full caption too
+    copyToClipboard(shareText);
+    
+    // Auto-remove after 10 seconds
+    setTimeout(() => {
+        if (notification.parentElement) {
+            notification.remove();
+        }
+        if (style.parentElement) {
+            style.remove();
+        }
+    }, 10000);
+    
+    trackSocialShare('instagram');
+}
+
+function openYouTube() {
+    let searchQuery;
+    if (window.location.pathname.includes('chapter')) {
+        const chapterTitle = document.querySelector('.chapter-title-english')?.textContent || 'Bhagavad Gita Chapter';
+        searchQuery = encodeURIComponent(`Bhagavad Gita ${chapterTitle} explanation commentary`);
+    } else {
+        searchQuery = encodeURIComponent('Bhagavad Gita spiritual teachings Krishna');
+    }
+    
+    window.open(`https://www.youtube.com/results?search_query=${searchQuery}`, '_blank');
+    trackSocialShare('youtube');
+}
+
+function trackSocialShare(platform) {
+    // Track social sharing for analytics
+    console.log(`📊 Social share: ${platform}`);
+    
+    // Show success notification
+    const messages = {
+        'facebook': 'Shared on Facebook! 📘',
+        'twitter': 'Shared on Twitter! 🐦',
+        'instagram': 'Ready for Instagram! 📷',
+        'youtube': 'Opened YouTube! 📺'
+    };
+    
+    showNotification(messages[platform] || 'Shared successfully! 🎉');
 }
 
 // ===== INITIALIZE ACCESSIBILITY =====

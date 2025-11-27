@@ -800,11 +800,47 @@ p {
 .social-links a {
     font-size: var(--font-size-xl);
     text-decoration: none;
-    transition: transform var(--transition-base);
+    transition: all var(--transition-base);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
 }
 
 .social-links a:hover {
-    transform: scale(1.2);
+    transform: scale(1.1) translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.social-links a:nth-child(1):hover {
+    background: linear-gradient(135deg, #1877F2, #42A5F5);
+    box-shadow: 0 8px 20px rgba(24, 119, 242, 0.4);
+}
+
+.social-links a:nth-child(2):hover {
+    background: linear-gradient(135deg, #1DA1F2, #0084b4);
+    box-shadow: 0 8px 20px rgba(29, 161, 242, 0.4);
+}
+
+.social-links a:nth-child(3):hover {
+    background: linear-gradient(135deg, #E1306C, #F56040);
+    box-shadow: 0 8px 20px rgba(225, 48, 108, 0.4);
+}
+
+.social-links a:nth-child(4):hover {
+    background: linear-gradient(135deg, #FF0000, #CC0000);
+    box-shadow: 0 8px 20px rgba(255, 0, 0, 0.4);
+}
+
+.social-links a:active {
+    transform: scale(0.95);
+    transition: transform 0.1s ease;
 }
 
 .footer-quote {
@@ -1014,26 +1050,7 @@ p {
     }
 }
 
-/* ===== PRINT STYLES ===== */
-@media print {
-    .header,
-    .nav-toggle,
-    .btn,
-    .footer {
-        display: none;
-    }
-    
-    .hero {
-        min-height: auto;
-        padding: var(--spacing-xl) 0;
-    }
-    
-    .verse-card,
-    .chapter-card {
-        break-inside: avoid;
-        page-break-inside: avoid;
-    }
-}
+
 
 /* ===== CHAPTER MODAL & WORD MEANINGS STYLES ===== */
 .modal {
