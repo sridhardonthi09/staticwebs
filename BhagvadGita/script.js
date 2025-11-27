@@ -777,7 +777,11 @@ function navigateToChapter(chapterNumber) {
         11: 'chapter11.html',
         12: 'chapter12.html',
         13: 'chapter13.html',
-        15: 'chapter15.html'
+        14: 'chapter14.html',
+        15: 'chapter15.html',
+        16: 'chapter16.html',
+        17: 'chapter17.html',
+        18: 'chapter18.html'
     };
     
     if (availableChapters[chapterNumber]) {
