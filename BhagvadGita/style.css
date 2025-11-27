@@ -406,26 +406,31 @@ p {
     50% { transform: translateY(-20px); }
 }
 
-/* ===== DAILY VERSE SECTION ===== */
-.daily-verse {
-    padding: var(--spacing-4xl) 0;
-    background: var(--background-secondary);
+/* ===== VERSE SECTIONS FOR CHAPTER PAGES ===== */
+.verses-container {
+    margin-top: var(--spacing-2xl);
 }
 
 .verse-card {
     background: var(--background-primary);
     border-radius: 16px;
     padding: var(--spacing-2xl);
+    margin-bottom: var(--spacing-xl);
     box-shadow: var(--shadow-medium);
-    max-width: 800px;
-    margin: 0 auto;
+    border: 1px solid var(--border-light);
+    transition: all 0.3s ease;
+}
+
+.verse-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-large);
 }
 
 .verse-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: var(--spacing-xl);
+    margin-bottom: var(--spacing-lg);
     padding-bottom: var(--spacing-md);
     border-bottom: 2px solid var(--border-light);
 }
@@ -436,22 +441,29 @@ p {
     color: var(--primary-orange);
 }
 
-.verse-date {
+.verse-theme {
     font-size: var(--font-size-sm);
     color: var(--text-muted);
+    background: var(--light-orange);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-weight: 500;
 }
 
 .verse-content {
-    margin-bottom: var(--spacing-xl);
+    margin-bottom: var(--spacing-lg);
 }
 
-.sanskrit-verse {
+.sanskrit {
     font-family: var(--font-sanskrit);
     font-size: var(--font-size-xl);
     color: var(--deep-saffron);
     text-align: center;
     line-height: 1.8;
     margin-bottom: var(--spacing-lg);
+    padding: var(--spacing-lg);
+    background: var(--light-orange);
+    border-radius: 12px;
 }
 
 .transliteration {
@@ -460,23 +472,60 @@ p {
     color: var(--text-muted);
     text-align: center;
     margin-bottom: var(--spacing-lg);
+    line-height: 1.6;
 }
 
-.english-translation {
+.translation {
     font-size: var(--font-size-lg);
     color: var(--text-primary);
     line-height: 1.7;
-    background: var(--light-orange);
+    background: var(--background-secondary);
     padding: var(--spacing-lg);
     border-radius: 8px;
     border-left: 4px solid var(--primary-orange);
+    margin-bottom: var(--spacing-lg);
 }
 
-.verse-actions {
+.word-meanings {
+    background: var(--background-secondary);
+    padding: var(--spacing-lg);
+    border-radius: 12px;
+    border: 1px solid var(--border-light);
+}
+
+.word-meanings h4 {
+    color: var(--primary-orange);
+    margin-bottom: var(--spacing-md);
+    font-size: var(--font-size-lg);
+}
+
+.word-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-sm);
+}
+
+.word-pair {
     display: flex;
-    justify-content: center;
-    gap: var(--spacing-md);
-    flex-wrap: wrap;
+    flex-direction: column;
+    padding: var(--spacing-sm);
+    background: var(--background-primary);
+    border-radius: 6px;
+    border: 1px solid var(--border-light);
+}
+
+.sanskrit-word {
+    font-family: var(--font-sanskrit);
+    font-weight: 600;
+    color: var(--deep-saffron);
+    font-size: var(--font-size-base);
+    margin-bottom: 4px;
+}
+
+.meaning {
+    font-size: var(--font-size-sm);
+    color: var(--text-muted);
+    line-height: 1.4;
 }
 
 /* ===== CHAPTERS SECTION ===== */
@@ -945,21 +994,6 @@ p {
         text-align: center;
     }
     
-    .verse-header {
-        flex-direction: column;
-        gap: var(--spacing-sm);
-        text-align: center;
-    }
-    
-    .verse-actions {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .verse-actions .btn {
-        width: 100%;
-        max-width: 200px;
-    }
 }
 
 @media (max-width: 480px) {
@@ -983,7 +1017,6 @@ p {
         padding: var(--spacing-md);
     }
     
-    .verse-card,
     .chapter-card,
     .teaching-card,
     .commentary-card {
@@ -1016,7 +1049,6 @@ p {
     }
 }
 
-.verse-card,
 .chapter-card,
 .teaching-card,
 .commentary-card {
@@ -1280,12 +1312,6 @@ p {
     
     .modal-header h2 {
         font-size: var(--font-size-xl);
-    }
-    
-    .verse-header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0.5rem;
     }
     
     .word-meaning-item {

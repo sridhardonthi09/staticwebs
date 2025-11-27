@@ -1,0 +1,62 @@
+{
+  "name": "Bhagavad Gita - Sacred Wisdom Portal",
+  "short_name": "Bhagavad Gita",
+  "description": "The timeless wisdom of the Bhagavad Gita - all 18 chapters with Sanskrit verses, translations, and commentary. Experience the divine dialogue between Krishna and Arjuna offline.",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#fff8e7",
+  "theme_color": "#ff6b35",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "en",
+  "categories": ["spiritual", "education", "reference", "books"],
+  "icons": [
+    {
+      "src": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=192&h=192&q=80",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=512&h=512&q=80",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "https://images.unsplash.com/photo-1604881991720-f91add269bed?ixlib=rb-4.0.3&auto=format&fit=crop&w=540&h=720&q=80",
+      "sizes": "540x720",
+      "type": "image/jpeg",
+      "platform": "wide",
+      "label": "Bhagavad Gita Chapter View"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Random Verse",
+      "short_name": "Random",
+      "description": "Get inspired with a random verse from the Gita",
+      "url": "/index.html#random",
+      "icons": [
+        {
+          "src": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=192&h=192&q=80",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "Daily Reading",
+      "short_name": "Daily",
+      "description": "Today's spiritual reading",
+      "url": "/index.html#daily",
+      "icons": [
+        {
+          "src": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=192&h=192&q=80",
+          "sizes": "192x192"
+        }
+      ]
+    }
+  ]
+}

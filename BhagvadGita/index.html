@@ -41,7 +41,6 @@
                 <div class="nav-menu" id="navMenu">
                     <a href="#home" class="nav-link">Home</a>
                     <a href="#chapters" class="nav-link">Chapters</a>
-                    <a href="#verses" class="nav-link">Daily Verse</a>
                     <a href="#teachings" class="nav-link">Teachings</a>
                     <a href="#commentary" class="nav-link">Commentary</a>
                     <a href="#about" class="nav-link">About</a>
@@ -73,12 +72,12 @@
                             A sacred dialogue on dharma, duty, and the path to liberation - 
                             exploring 700 verses of profound spiritual guidance
                         </p>
-                        <div class="hero-actions">
+                        <div class="hero-buttons">
                             <button class="btn btn-primary" onclick="scrollToSection('chapters')">
                                 Explore Chapters
                             </button>
-                            <button class="btn btn-secondary" onclick="scrollToSection('verses')">
-                                Daily Verse
+                            <button class="btn btn-secondary" onclick="scrollToSection('teachings')">
+                                Sacred Teachings
                             </button>
                         </div>
                     </div>
@@ -93,36 +92,7 @@
             </div>
         </section>
 
-        <!-- Daily Verse Section -->
-        <section id="verses" class="daily-verse">
-            <div class="container">
-                <h2 class="section-title">Daily Verse</h2>
-                <div class="verse-card">
-                    <div class="verse-header">
-                        <span class="verse-number">Chapter 2, Verse 47</span>
-                        <span class="verse-date" id="currentDate"></span>
-                    </div>
-                    <div class="verse-content">
-                        <div class="sanskrit-verse">
-                            <p>कर्मण्येवाधिकारस्ते मा फलेषु कदाचन।</p>
-                            <p>मा कर्मफलहेतुर्भूर्मा ते सङ्गोऽस्त्वकर्मणि॥</p>
-                        </div>
-                        <div class="transliteration">
-                            <p>karmaṇy evādhikāras te mā phaleṣu kadācana</p>
-                            <p>mā karma-phala-hetur bhūr mā te saṅgo 'stv akarmaṇi</p>
-                        </div>
-                        <div class="english-translation">
-                            <p>You have a right to perform your prescribed duty, but you are not entitled to the fruits of action. Never consider yourself the cause of the results of your activities, and never be attached to not doing your duty.</p>
-                        </div>
-                    </div>
-                    <div class="verse-actions">
-                        <button class="btn btn-outline" onclick="shareVerse()">Share</button>
-                        <button class="btn btn-outline" onclick="saveVerse()">Save</button>
-                        <button class="btn btn-outline" onclick="getNewVerse()">New Verse</button>
-                    </div>
-                </div>
-            </div>
-        </section>
+
 
         <!-- Chapters Section -->
         <section id="chapters" class="chapters">
